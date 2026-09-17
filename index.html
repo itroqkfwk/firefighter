@@ -6,22 +6,21 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>🚒 자랑스러운 소하준 소방관 임용을 축하한다!</title>
-  <meta property="og:title" content="🚒 자랑스러운 나의 영웅, 소하준 소방관 임용 축하!">
-  <meta property="og:description" content="세상에서 가장 뜨거운 곳으로 달려가는 내 친구 소하준에게 보내는 친구의 진심 어린 응원">
+  <title>🚨 간다 또 간다 소하준! 🚒💨</title>
+  <meta property="og:title" content="🚨 간다 또 간다 소하준! 🚒💨">
+  <meta property="og:description" content="밥 먹다가도 간다! 자다가도 간다! 불 끄러 간다 또 간다 소하준!">
   <meta property="og:image" content="poster.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --fire: #ff4757;
-      --fire-orange: #ff7f50;
-      --gold: #ffd700;
-      --gold-glow: rgba(255, 215, 0, 0.45);
-      --dark-bg: #090d14;
-      --card-bg: rgba(18, 24, 38, 0.88);
-      --border-color: rgba(255, 215, 0, 0.28);
+      --siren-red: #ff3838;
+      --siren-blue: #18dcff;
+      --gold: #ffd32a;
+      --dark: #0f141d;
+      --card: rgba(23, 32, 48, 0.9);
+      --border: rgba(255, 211, 42, 0.35);
     }
 
     * {
@@ -32,22 +31,21 @@
     }
 
     body {
-      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background-color: var(--dark-bg);
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--dark);
       background-image: 
-        radial-gradient(circle at 10% 10%, rgba(255, 71, 87, 0.22) 0%, transparent 45%),
-        radial-gradient(circle at 90% 80%, rgba(255, 127, 80, 0.18) 0%, transparent 45%),
-        radial-gradient(circle at 50% 50%, #090d14 0%, #030508 100%);
+        radial-gradient(circle at 10% 10%, rgba(255, 56, 56, 0.25) 0%, transparent 45%),
+        radial-gradient(circle at 90% 90%, rgba(24, 220, 255, 0.2) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, #0f141d 0%, #06090e 100%);
       background-attachment: fixed;
-      color: #f0f6fc;
+      color: #f1f2f6;
       min-height: 100vh;
       overflow-x: hidden;
-      line-height: 1.65;
+      line-height: 1.6;
       padding-bottom: calc(40px + env(safe-area-inset-bottom));
     }
 
-    /* Interactive Particle Canvas (Confetti & Embers) */
-    #particle-canvas {
+    #confetti-canvas {
       position: fixed;
       top: 0;
       left: 0;
@@ -58,593 +56,469 @@
     }
 
     .container {
-      max-width: 680px;
+      max-width: 650px;
       margin: 0 auto;
       padding: 24px 16px 60px;
       position: relative;
       z-index: 10;
     }
 
-    /* Sound Controller Button */
-    .sound-toggle {
+    /* Sound Switch */
+    .sound-btn {
       position: fixed;
-      top: 18px;
-      right: 18px;
+      top: 16px;
+      right: 16px;
       z-index: 1000;
-      background: rgba(18, 24, 38, 0.85);
+      background: rgba(15, 20, 29, 0.85);
       backdrop-filter: blur(8px);
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--border);
       color: var(--gold);
       padding: 8px 14px;
       border-radius: 30px;
       font-size: 0.85rem;
-      font-weight: 700;
+      font-weight: 800;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-      transition: all 0.2s ease;
-    }
-    .sound-toggle:hover {
-      background: rgba(255, 215, 0, 0.2);
-      transform: scale(1.05);
     }
 
-    /* 1. HERO HEADER */
-    .hero-header {
+    /* HEADER */
+    .header {
       text-align: center;
-      margin-bottom: 24px;
-      animation: fadeInDown 0.8s ease-out;
+      margin-bottom: 22px;
     }
 
-    .badge-pill {
+    .alert-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: linear-gradient(135deg, rgba(255, 71, 87, 0.25), rgba(255, 215, 0, 0.2));
-      border: 1px solid var(--border-color);
+      background: linear-gradient(135deg, rgba(255, 56, 56, 0.3), rgba(24, 220, 255, 0.2));
+      border: 1px solid rgba(255, 56, 56, 0.5);
       padding: 6px 16px;
       border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--gold);
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #fff;
       margin-bottom: 12px;
-      box-shadow: 0 0 15px var(--gold-glow);
+      animation: pulse 1.5s infinite;
     }
 
-    .main-title {
-      font-size: clamp(1.75rem, 6.5vw, 2.5rem);
+    .title {
+      font-size: clamp(2rem, 7.5vw, 2.9rem);
       font-weight: 900;
-      line-height: 1.35;
-      background: linear-gradient(135deg, #ffffff 10%, #ffd700 50%, #ff4757 100%);
+      line-height: 1.25;
+      background: linear-gradient(135deg, #fff 10%, #ffd32a 50%, #ff3838 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       word-break: keep-all;
     }
 
     .subtitle {
-      font-size: clamp(0.95rem, 3.8vw, 1.1rem);
-      color: #94a3b8;
-      font-weight: 500;
+      font-size: clamp(1rem, 3.8vw, 1.15rem);
+      color: #ced6e0;
+      font-weight: 600;
       word-break: keep-all;
     }
 
-    /* 2. POSTER CARD */
-    .poster-card {
-      background: var(--card-bg);
-      backdrop-filter: blur(16px);
-      border: 2px solid var(--border-color);
+    /* POSTER CARD */
+    .poster-box {
+      background: var(--card);
+      border: 2px solid var(--border);
       border-radius: 24px;
       padding: 14px;
-      margin-bottom: 26px;
-      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.8), 0 0 35px rgba(255, 215, 0, 0.15);
+      margin-bottom: 24px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.7);
       text-align: center;
       position: relative;
-      animation: fadeInUp 0.8s ease-out 0.15s both;
     }
 
-    .poster-img-wrap {
+    .poster-wrap {
       border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
       position: relative;
       background: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
-    .poster-img {
+    .poster-wrap img {
       width: 100%;
       height: auto;
-      max-height: 650px;
+      max-height: 600px;
       object-fit: cover;
       display: block;
-      transition: transform 0.4s ease;
     }
 
-    .poster-img:hover {
-      transform: scale(1.02);
-    }
-
-    .poster-ribbon {
+    .poster-tag {
       position: absolute;
       bottom: 12px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(9, 13, 20, 0.92);
-      backdrop-filter: blur(8px);
-      border: 1px solid var(--gold);
+      background: rgba(15, 20, 29, 0.92);
+      border: 1.5px solid var(--gold);
       padding: 8px 18px;
       border-radius: 30px;
       color: #fff;
-      font-weight: 700;
-      font-size: clamp(0.82rem, 3.2vw, 0.95rem);
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      font-weight: 800;
+      font-size: 0.9rem;
       white-space: nowrap;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.6);
     }
 
-    /* 3. CHEER INTERACTION (ADVANCED) */
-    .cheer-card {
-      background: radial-gradient(circle at center, rgba(255, 71, 87, 0.22) 0%, rgba(18, 24, 38, 0.95) 100%);
-      border: 2px solid rgba(255, 71, 87, 0.5);
+    /* DISPATCH SIMULATOR */
+    .dispatch-card {
+      background: radial-gradient(circle at center, rgba(255, 56, 56, 0.25) 0%, rgba(23, 32, 48, 0.95) 100%);
+      border: 2px dashed rgba(255, 56, 56, 0.6);
       border-radius: 22px;
-      padding: 24px 18px;
+      padding: 24px 16px;
       text-align: center;
-      margin-bottom: 26px;
-      box-shadow: 0 12px 30px rgba(255, 71, 87, 0.2);
-      animation: fadeInUp 0.8s ease-out 0.25s both;
+      margin-bottom: 24px;
     }
 
-    .cheer-badge {
-      display: inline-block;
-      font-size: 0.8rem;
+    .dispatch-title {
+      font-size: 1.15rem;
       font-weight: 800;
-      padding: 4px 12px;
-      background: rgba(255, 71, 87, 0.3);
-      color: #ff6b81;
-      border-radius: 20px;
-      margin-bottom: 8px;
+      color: #ff3838;
+      margin-bottom: 4px;
     }
 
-    .cheer-count-display {
-      font-size: clamp(2.8rem, 10vw, 3.8rem);
+    .dispatch-count {
+      font-size: clamp(3rem, 11vw, 4.2rem);
       font-weight: 900;
-      color: #ff4757;
-      margin: 4px 0;
-      text-shadow: 0 0 25px var(--fire);
-      letter-spacing: 1px;
+      color: #ffd32a;
       line-height: 1.1;
+      margin: 6px 0;
+      text-shadow: 0 0 20px rgba(255, 211, 42, 0.5);
     }
 
-    /* Cheer Progress Energy Bar */
-    .energy-bar-wrap {
-      background: rgba(0, 0, 0, 0.4);
-      border-radius: 20px;
-      height: 14px;
-      width: 100%;
-      max-width: 380px;
-      margin: 12px auto 8px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      position: relative;
-    }
-
-    .energy-bar-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #ff4757, #ff7f50, #ffd700);
-      border-radius: 20px;
-      transition: width 0.3s ease;
-      box-shadow: 0 0 10px var(--gold);
-    }
-
-    .level-label {
-      font-size: 0.92rem;
+    .dispatch-status {
+      font-size: 0.98rem;
       font-weight: 700;
-      color: #ffd700;
-      margin-bottom: 12px;
+      color: #70a1ff;
+      margin-bottom: 14px;
+      min-height: 24px;
     }
 
-    .cheer-btn {
-      background: linear-gradient(135deg, #ff4757, #ff6b81);
+    .dispatch-btn {
+      background: linear-gradient(135deg, #ff3838, #ff5e57);
       color: #fff;
-      font-size: clamp(1.1rem, 4.5vw, 1.25rem);
-      font-weight: 800;
+      font-size: clamp(1.15rem, 4.5vw, 1.3rem);
+      font-weight: 900;
       border: none;
       border-radius: 50px;
-      padding: 15px 36px;
+      padding: 16px 36px;
       cursor: pointer;
-      box-shadow: 0 10px 25px rgba(255, 71, 87, 0.5);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      box-shadow: 0 10px 25px rgba(255, 56, 56, 0.45);
+      transition: transform 0.1s, box-shadow 0.1s;
       width: 100%;
       max-width: 320px;
-      justify-content: center;
     }
 
-    .cheer-btn:active {
+    .dispatch-btn:active {
       transform: scale(0.94);
     }
 
-    /* 4. HEARTWARMING LETTER */
-    .letter-card {
-      background: linear-gradient(145deg, rgba(26, 35, 49, 0.95), rgba(18, 24, 38, 0.95));
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-left: 5px solid #ff4757;
+    /* REAL FRIEND LETTER (NO CRINGE) */
+    .friend-letter {
+      background: var(--card);
+      border-left: 6px solid var(--gold);
       border-radius: 20px;
       padding: 24px 20px;
-      margin-bottom: 26px;
-      box-shadow: 0 12px 25px rgba(0,0,0,0.35);
-      animation: fadeInUp 0.8s ease-out 0.35s both;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     }
 
-    .letter-header {
+    .letter-title {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: #ffd700;
-      margin-bottom: 16px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding-bottom: 10px;
+      gap: 6px;
     }
 
-    .letter-body {
-      font-size: clamp(0.98rem, 3.7vw, 1.06rem);
-      line-height: 1.85;
-      color: #e2e8f0;
+    .letter-content {
+      font-size: clamp(0.98rem, 3.8vw, 1.05rem);
+      color: #f1f2f6;
+      line-height: 1.8;
       word-break: keep-all;
     }
 
-    .letter-body p {
-      margin-bottom: 14px;
+    .letter-content p {
+      margin-bottom: 12px;
     }
 
-    .letter-body p:last-child {
+    .letter-content p:last-child {
       margin-bottom: 0;
     }
 
-    .highlight-gold {
-      color: #ffd700;
-      font-weight: 700;
-      background: rgba(255, 215, 0, 0.15);
+    .tag-yellow {
+      color: var(--gold);
+      font-weight: 800;
+      background: rgba(255, 211, 42, 0.15);
       padding: 2px 6px;
       border-radius: 4px;
     }
 
-    .highlight-red {
-      color: #ff6b81;
-      font-weight: 700;
-      background: rgba(255, 71, 87, 0.18);
+    .tag-red {
+      color: #ff4d4d;
+      font-weight: 800;
+      background: rgba(255, 56, 56, 0.18);
       padding: 2px 6px;
       border-radius: 4px;
     }
 
-    .letter-sign {
+    .sign {
       text-align: right;
       font-weight: 800;
-      color: #ffd700;
-      margin-top: 18px;
+      color: var(--gold);
+      margin-top: 16px;
       font-size: 1rem;
     }
 
-    /* 5. PLEDGE CARDS */
-    .pledge-grid {
+    /* 3 FACTS */
+    .facts-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 12px;
-      margin-bottom: 26px;
-      animation: fadeInUp 0.8s ease-out 0.45s both;
+      margin-bottom: 24px;
     }
 
     @media (min-width: 520px) {
-      .pledge-grid {
+      .facts-grid {
         grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    .pledge-item {
-      background: var(--card-bg);
+    .fact-item {
+      background: var(--card);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 16px;
-      padding: 18px 14px;
+      padding: 16px 14px;
       text-align: center;
-      transition: transform 0.2s, border-color 0.2s;
     }
 
-    .pledge-item:hover {
-      border-color: var(--gold);
-      transform: translateY(-3px);
-    }
-
-    .pledge-icon {
+    .fact-icon {
       font-size: 1.8rem;
-      margin-bottom: 8px;
-    }
-
-    .pledge-title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #fff;
       margin-bottom: 6px;
     }
 
-    .pledge-desc {
-      font-size: 0.85rem;
-      color: #94a3b8;
-      line-height: 1.45;
-      word-break: keep-all;
-    }
-
-    /* 6. COMMENDATION BADGE (ADVANCED) */
-    .hero-certificate {
-      border: 2px dashed rgba(255, 215, 0, 0.5);
-      background: rgba(255, 215, 0, 0.05);
-      border-radius: 20px;
-      padding: 22px;
-      text-align: center;
-      margin-bottom: 26px;
-    }
-
-    .cert-title {
-      font-size: 1.15rem;
+    .fact-title {
+      font-size: 1rem;
       font-weight: 800;
-      color: var(--gold);
-      margin-bottom: 10px;
-      letter-spacing: 1px;
+      color: #fff;
+      margin-bottom: 4px;
     }
 
-    .cert-text {
-      font-size: 0.92rem;
-      color: #cbd5e1;
-      line-height: 1.6;
+    .fact-desc {
+      font-size: 0.85rem;
+      color: #a4b0be;
+      line-height: 1.4;
       word-break: keep-all;
     }
 
-    /* 7. SHARE & FOOTER */
-    .share-footer {
+    /* FOOTER */
+    .footer {
       text-align: center;
       padding: 18px;
       background: rgba(255, 255, 255, 0.03);
       border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .share-btn {
-      background: rgba(255, 215, 0, 0.15);
+      background: rgba(255, 211, 42, 0.18);
       border: 1px solid var(--gold);
       color: var(--gold);
-      padding: 12px 26px;
+      padding: 12px 24px;
       border-radius: 30px;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 0.95rem;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-top: 10px;
-      transition: all 0.2s;
+      margin-top: 8px;
     }
 
-    .share-btn:hover {
-      background: var(--gold);
-      color: #000;
-    }
-
-    /* TOAST */
     .toast {
       position: fixed;
       bottom: 24px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(9, 13, 20, 0.96);
-      border: 1px solid var(--gold);
-      color: #ffd700;
+      background: rgba(15, 20, 29, 0.96);
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
       padding: 12px 24px;
       border-radius: 50px;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 0.9rem;
       box-shadow: 0 10px 30px rgba(0,0,0,0.8);
       z-index: 1000;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.3s ease;
-      text-align: center;
+      transition: opacity 0.3s;
       white-space: nowrap;
-      max-width: 90vw;
     }
 
     .toast.show {
       opacity: 1;
     }
 
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-25px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(25px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.04); opacity: 0.85; }
     }
   </style>
 </head>
 <body>
 
   <!-- Sound Toggle -->
-  <button class="sound-toggle" onclick="toggleSound()">
-    <span id="sound-icon">🔊</span> <span id="sound-text">효과음 ON</span>
+  <button class="sound-btn" onclick="toggleSound()">
+    <span id="sound-icon">🔊</span> 사이렌 ON
   </button>
 
-  <!-- Particle Canvas -->
-  <canvas id="particle-canvas"></canvas>
+  <canvas id="confetti-canvas"></canvas>
 
   <div class="container">
 
-    <!-- 1. HERO HEADER -->
-    <header class="hero-header">
-      <div class="badge-pill">
-        <span>🇰🇷</span> 대한민국 소방청 신임 소방관 임용
+    <!-- 1. HEADER -->
+    <header class="header">
+      <div class="alert-pill">
+        🚨 비상! 하준이 출동 준비 완료 삐뽀삐뽀
       </div>
-      <h1 class="main-title">자랑스러운 나의 영웅!<br>소하준 소방관 임용을 축하한다! 🚒</h1>
-      <p class="subtitle">세상에서 가장 뜨겁고 위험한 곳으로 달려가는 내 친구 하준이에게</p>
+      <h1 class="title">간다 또 간다 소하준! 🚒💨</h1>
+      <p class="subtitle">밥 먹다가도 간다! 자다가도 간다! 불 끄러 간다 또 간다!</p>
     </header>
 
-    <!-- 2. POSTER SHOWCASE -->
-    <div class="poster-card">
-      <div class="poster-img-wrap">
-        <img src="poster.jpg" alt="소하준 소방관 임용 축하 포스터" class="poster-img">
-        <div class="poster-ribbon">
-          <span>🎖️</span> 대한민국 정예 소방관 소하준
+    <!-- 2. POSTER -->
+    <div class="poster-box">
+      <div class="poster-wrap">
+        <img src="poster.jpg" alt="소하준 소방관 포스터">
+        <div class="poster-tag">
+          🚨 출동 벨 울리면 0.1초 만에 튀어나갈 사나이
         </div>
       </div>
     </div>
 
-    <!-- 3. CHEER COUNTER & ENERGY GAUGE (STARTS FROM 0) -->
-    <section class="cheer-card">
-      <div class="cheer-badge">⚡ 소하준 소방관 응원 게이지</div>
-      <div class="cheer-count-display" id="cheer-count">0</div>
-      
-      <div class="energy-bar-wrap">
-        <div class="energy-bar-fill" id="energy-fill"></div>
-      </div>
-      <div class="level-label" id="level-label">Level 1 : 훈련생 하준 (응원 대기 중!)</div>
+    <!-- 3. FUN DISPATCH SIMULATOR -->
+    <section class="dispatch-card">
+      <div class="dispatch-title">🚨 소하준 출동 시뮬레이터 🚨</div>
+      <div class="dispatch-count" id="count">0회</div>
+      <div class="dispatch-status" id="status">버튼 눌러서 하준이 출동시켜라 ㅋㅋㅋ</div>
 
-      <button class="cheer-btn" onclick="sendCheer()">
-        <span>🔥</span> 하준이 응원하기 <span>👏</span>
+      <button class="dispatch-btn" onclick="dispatch()">
+        🚒 간다 또 간다! 출동! 💨
       </button>
     </section>
 
-    <!-- 4. HEARTWARMING LETTER -->
-    <section class="letter-card">
-      <div class="letter-header">
-        <span>💌</span> 소방관이 된 친구 하준이에게
+    <!-- 4. REAL FRIEND LETTER (NO CRINGE) -->
+    <section class="friend-letter">
+      <div class="letter-title">
+        <span>📜</span> 야 소하준, 소방관 된 거 진심으로 축하한다!
       </div>
-      <div class="letter-body">
+      <div class="letter-content">
         <p>
-          <strong>하준아,</strong> 그동안 힘든 수험 생활과 고된 훈련을 묵묵히 버텨내며 <span class="highlight-gold">피땀 흘려 노력했던 시간들</span>을 누구보다 곁에서 잘 알기에, 소방관으로 당당하게 첫발을 내딛는 오늘이 그 무엇보다 기쁘고 자랑스럽다!
+          드디어 소방관 합격했네 <span class="tag-yellow">소하준 진짜 고생 많았다 ㅋㅋㅋ ㅊㅋㅊㅋ!</span> 🎉
         </p>
         <p>
-          남들의 가장 절박하고 위태로운 순간에 가장 먼저 손을 내미는 고귀한 사명감을 가진 너를 진심으로 존경해. 하지만 잊지 마라, <span class="highlight-red">누군가의 생명을 구하는 영웅이기 이전에, 너는 나에게 세상에 둘도 없는 가장 소중한 친구야.</span>
+          이제 밥 먹을 때 벨 울리면 숟가락 집어던지고 뛰쳐나가야 된다. 
+          <span class="tag-red">컵라면에 뜨거운 물 붓자마자 사이렌 울려도 절대 울지 마라 ㅋㅋㅋ</span> 면 다 불어도 출동해야 되는 게 네 운명이다.
         </p>
         <p>
-          어떤 현장에서든 <span class="highlight-gold">언제나 안전이 최우선이고, 무사히 돌아오는 것이 첫 번째 임무</span>라는 걸 가슴에 새겨줘. 지치고 힘들 때면 언제든 기댈 수 있도록 내가 뒤에서 항상 열렬히 응원할게!
+          합격했으니까 첫 월급 타면 모른 척하지 말고 <span class="tag-yellow">고기 쏘는 거 잊지 마라.</span> 양심 있으면 소고기 알지? 🥩
         </p>
-        <div class="letter-sign">
-          - 너의 가장 든든한 친구가 -
+        <p>
+          장난이고, 불 끄는 것도 멋진데 <strong>너 다치면 진짜 내가 찾아가서 혼낼 거니까</strong> 무슨 일 있어도 몸 사리고 다치지 마라 임마! 무조건 안 다치는 게 1순위다 알겠냐?
+        </p>
+        <div class="sign">
+          - 첫 월급 소고기 대기 중인 친구가 -
         </div>
       </div>
     </section>
 
-    <!-- 5. PLEDGE CARDS -->
-    <div class="pledge-grid">
-      <div class="pledge-item">
-        <div class="pledge-icon">🛡️</div>
-        <div class="pledge-title">제1수칙 : 무사 귀환</div>
-        <div class="pledge-desc">시민의 안전도 중요하지만, 하준이 너의 안전이 언제나 1순위!</div>
+    <!-- 5. 3 FACTS -->
+    <div class="facts-grid">
+      <div class="fact-item">
+        <div class="fact-icon">🍜</div>
+        <div class="fact-title">3분 요리의 저주</div>
+        <div class="fact-desc">카레 돌리면 2분 50초에 사이렌 울림 확정</div>
       </div>
 
-      <div class="pledge-item">
-        <div class="pledge-icon">🔥</div>
-        <div class="pledge-title">뜨거운 용기와 사명감</div>
-        <div class="pledge-desc">어둠과 불길 속에서도 희망을 밝히는 최고의 소방관이 될 거야.</div>
+      <div class="fact-item">
+        <div class="fact-icon">🥩</div>
+        <div class="fact-title">첫 월급 소고기 공약</div>
+        <div class="fact-desc">입 싹 닫으면 119 장난전화 마려우니까 사줘라</div>
       </div>
 
-      <div class="pledge-item">
-        <div class="pledge-icon">🤝</div>
-        <div class="pledge-title">평생 함께할 든든한 아군</div>
-        <div class="pledge-desc">네 뒤에는 언제나 너를 믿고 열렬히 응원하는 친구가 있어!</div>
+      <div class="fact-item">
+        <div class="fact-icon">🛡️</div>
+        <div class="fact-title">몸조심 안전제일</div>
+        <div class="fact-desc">아무리 급해도 다치지 말고 무사히 돌아와라</div>
       </div>
     </div>
 
-    <!-- 6. COMMENDATION CARD -->
-    <section class="hero-certificate">
-      <div class="cert-title">🎖️ 신임 소방관 임용 헌정문 🎖️</div>
-      <p class="cert-text">
-        소방관 <strong>소하준</strong> 대원은 불굴의 의지와 헌신으로 힘든 과정을 통과하여<br>
-        생명을 수호하는 자랑스러운 대한민국 소방관으로 임용되었기에<br>
-        그 고귀한 용기와 사명감에 깊은 존경과 응원을 표합니다.
-      </p>
-    </section>
-
-    <!-- 7. SHARE & FOOTER -->
-    <footer class="share-footer">
-      <p style="color: #94a3b8; font-size: 0.92rem;">하준이에게 이 축하 페이지 링크를 전달해 주세요!</p>
+    <!-- 6. FOOTER -->
+    <footer class="footer">
+      <p style="color: #a4b0be; font-size: 0.9rem;">하준이한테 링크 보내서 놀려주자 ㅋㅋㅋ</p>
       <button class="share-btn" onclick="copyLink()">
-        <span>🔗</span> 축하 페이지 링크 복사하기
+        <span>🔗</span> 링크 복사해서 하준이 보내기
       </button>
     </footer>
 
   </div>
 
-  <div id="toast" class="toast">✅ 링크가 복사되었습니다! 카톡에 공유해보세요.</div>
+  <div id="toast" class="toast">✅ 링크 복사 완료! 하준이한테 보내라 ㅋㅋㅋ</div>
 
   <script>
-    // Audio Synthesizer (Web Audio API)
-    let soundEnabled = true;
+    // Web Audio Synthesizer (Siren & Funny Sounds)
+    let soundOn = true;
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
     function toggleSound() {
-      soundEnabled = !soundEnabled;
-      document.getElementById('sound-icon').innerText = soundEnabled ? '🔊' : '🔇';
-      document.getElementById('sound-text').innerText = soundEnabled ? '효과음 ON' : '효과음 OFF';
+      soundOn = !soundOn;
+      document.getElementById('sound-icon').innerText = soundOn ? '🔊' : '🔇';
+      document.querySelector('.sound-btn').innerHTML = soundOn ? '🔊 사이렌 ON' : '🔇 사이렌 OFF';
     }
 
-    function playBeep(freq, type = 'triangle', duration = 0.2, gainVal = 0.1) {
-      if (!soundEnabled) return;
-      try {
-        if (audioCtx.state === 'suspended') audioCtx.resume();
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.type = type;
-        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-        gain.gain.setValueAtTime(gainVal, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        osc.start();
-        osc.stop(audioCtx.currentTime + duration);
-      } catch (e) {}
-    }
-
-    function playSirenEffect() {
-      if (!soundEnabled) return;
+    function playSiren() {
+      if (!soundOn) return;
       try {
         if (audioCtx.state === 'suspended') audioCtx.resume();
         const now = audioCtx.currentTime;
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
         osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(650, now);
-        osc.frequency.linearRampToValueAtTime(950, now + 0.2);
-        osc.frequency.linearRampToValueAtTime(650, now + 0.4);
+        osc.frequency.setValueAtTime(600, now);
+        osc.frequency.linearRampToValueAtTime(1050, now + 0.18);
+        osc.frequency.linearRampToValueAtTime(600, now + 0.36);
         gain.gain.setValueAtTime(0.12, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
         osc.connect(gain);
         gain.connect(audioCtx.destination);
         osc.start(now);
-        osc.stop(now + 0.45);
+        osc.stop(now + 0.4);
       } catch (e) {}
     }
 
-    function playLevelUpSound() {
-      if (!soundEnabled) return;
-      const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
-      notes.forEach((freq, i) => {
-        setTimeout(() => playBeep(freq, 'triangle', 0.35, 0.14), i * 90);
-      });
+    function playBuzzer() {
+      if (!soundOn) return;
+      try {
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(320, now);
+        gain.gain.setValueAtTime(0.15, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 0.2);
+      } catch (e) {}
     }
 
-    // Particle Canvas (Fire Embers & Golden Confetti)
-    const canvas = document.getElementById('particle-canvas');
+    // Canvas Confetti
+    const canvas = document.getElementById('confetti-canvas');
     const ctx = canvas.getContext('2d');
     let width = canvas.width = window.innerWidth;
     let height = canvas.height = window.innerHeight;
@@ -655,136 +529,96 @@
     });
 
     const particles = [];
-    const colors = ['#ff4757', '#ffd700', '#ff7f50', '#ffffff', '#ff6b81'];
+    const colors = ['#ff3838', '#ffd32a', '#18dcff', '#ffffff', '#ff5e57'];
 
-    function createParticle(x, y, isBurst = false) {
-      return {
-        x: x !== undefined ? x : Math.random() * width,
-        y: y !== undefined ? y : (isBurst ? height / 2 : height + 10),
-        size: Math.random() * (isBurst ? 8 : 5) + 3,
-        color: colors[Math.floor(Math.random() * colors.length)],
-        speedY: isBurst ? (Math.random() * -14 - 4) : (Math.random() * -2.5 - 1),
-        speedX: isBurst ? (Math.random() * 12 - 6) : (Math.random() * 1.5 - 0.75),
-        rotation: Math.random() * 360,
-        rotationSpeed: Math.random() * 8 - 4,
-        opacity: isBurst ? 1 : Math.random() * 0.7 + 0.3,
-        isBurst: isBurst
-      };
-    }
-
-    // Ambient floating embers
-    for (let i = 0; i < 40; i++) {
-      const p = createParticle();
-      p.y = Math.random() * height;
-      particles.push(p);
-    }
-
-    function burstConfetti(amount = 35) {
+    function burst(amount = 25) {
       for (let i = 0; i < amount; i++) {
-        particles.push(createParticle(width / 2, height / 2 + 50, true));
+        particles.push({
+          x: width / 2,
+          y: height / 2 + 50,
+          size: Math.random() * 7 + 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          speedY: Math.random() * -12 - 4,
+          speedX: Math.random() * 12 - 6,
+          rotation: Math.random() * 360,
+          rotationSpeed: Math.random() * 10 - 5
+        });
       }
     }
 
-    function renderParticles() {
+    function loop() {
       ctx.clearRect(0, 0, width, height);
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
         p.y += p.speedY;
         p.x += p.speedX;
+        p.speedY += 0.35;
         p.rotation += p.rotationSpeed;
 
         ctx.save();
         ctx.translate(p.x, p.y);
         ctx.rotate((p.rotation * Math.PI) / 180);
-        ctx.globalAlpha = p.opacity;
         ctx.fillStyle = p.color;
         ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
         ctx.restore();
 
-        if (p.isBurst) {
-          p.speedY += 0.35; // gravity for burst
-          p.opacity -= 0.015;
-          if (p.opacity <= 0 || p.y > height) {
-            particles.splice(i, 1);
-            i--;
-          }
-        } else {
-          // rising ember reset
-          if (p.y < -20) {
-            p.y = height + 10;
-            p.x = Math.random() * width;
-          }
+        if (p.y > height) {
+          particles.splice(i, 1);
+          i--;
         }
       }
-      requestAnimationFrame(renderParticles);
+      requestAnimationFrame(loop);
     }
-    renderParticles();
+    loop();
 
-    // Cheer System (Starts from 0)
-    let cheers = 0;
-    const cheerDisplay = document.getElementById('cheer-count');
-    const energyFill = document.getElementById('energy-fill');
-    const levelLabel = document.getElementById('level-label');
+    // Dispatch Simulator Logic
+    let count = 0;
+    const countEl = document.getElementById('count');
+    const statusEl = document.getElementById('status');
 
-    const milestones = [
-      { max: 10, name: 'Level 1 : 훈련생 하준 (응원 장전 중! 🔥)' },
-      { max: 30, name: 'Level 2 : 신임 소방관 하준 (출동 준비 완료! 🚒)' },
-      { max: 50, name: 'Level 3 : 화염 저항 마스터 하준 (사명감 200%! 🛡️)' },
-      { max: 99, name: 'Level 4 : 무적의 히어로 소하준 (생명 구조의 달인! 💪)' },
-      { max: Infinity, name: 'Level MAX : 대한민국 전설의 소방관 소하준! 👑' }
+    const funnyMessages = [
+      "🚨 '아 밥 한 숟갈 떴는데!' ㅋㅋㅋ",
+      "🚨 '신발 한 짝 어디 갔냐!' ㅋㅋㅋ",
+      "🚨 '하준이 컵라면 면 다 불어터지는 중!' ㅋㅋㅋ",
+      "🚨 '오늘 당직 누구냐! 하준이 또 뛴다!' ㅋㅋㅋ",
+      "🚨 '소하준 분신술 쓰는 중!' ㅋㅋㅋ",
+      "🚨 '소방차 바퀴에 불나겠다!' ㅋㅋㅋ",
+      "👑 '불 끄기의 신 소하준 등극! 첫 월급 소고기 확정!'"
     ];
 
-    function updateCheerUI() {
-      cheerDisplay.innerText = cheers.toLocaleString();
-      const progress = Math.min(100, (cheers / 50) * 100);
-      energyFill.style.width = `${progress}%`;
+    function dispatch() {
+      count++;
+      countEl.innerText = `${count}회`;
+      playSiren();
+      burst(20);
 
-      for (let m of milestones) {
-        if (cheers < m.max) {
-          levelLabel.innerText = m.name;
-          break;
-        }
+      const msgIndex = Math.min(funnyMessages.length - 1, Math.floor(count / 3));
+      statusEl.innerText = funnyMessages[msgIndex];
+
+      if (count === 10 || count === 25 || count === 50) {
+        showToast(`🎉 출동 ${count}회 돌파! 하준이 체력 방전 ㅋㅋㅋ`);
       }
     }
 
-    function sendCheer() {
-      cheers++;
-      updateCheerUI();
-
-      if (cheers === 10 || cheers === 30 || cheers === 50 || cheers === 100) {
-        playLevelUpSound();
-        burstConfetti(60);
-        showToast(`🎉 레벨업! ${levelLabel.innerText}`);
-      } else {
-        if (cheers % 5 === 0) playSirenEffect();
-        else playBeep(520 + (cheers % 10) * 30, 'triangle', 0.15, 0.12);
-        burstConfetti(15);
-        showToast('🔥 하준이에게 응원이 전달되었습니다! (+1)');
-      }
-    }
-
-    // Toast and Share
     function showToast(msg) {
       const toast = document.getElementById('toast');
       toast.innerText = msg;
       toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2500);
+      setTimeout(() => toast.classList.remove('show'), 2200);
     }
 
     function copyLink() {
       const url = window.location.origin + window.location.pathname;
       navigator.clipboard.writeText(url).then(() => {
-        showToast('✅ 링크가 복사되었습니다! 카톡으로 공유해보세요.');
+        showToast('✅ 링크 복사 완료! 하준이한테 보내라 ㅋㅋㅋ');
       }).catch(() => {
         showToast('링크 복사 완료!');
       });
     }
 
     window.onload = () => {
-      updateCheerUI();
-      setTimeout(() => burstConfetti(30), 400);
+      setTimeout(() => burst(25), 300);
     };
   </script>
 </body>
 </html>
-
