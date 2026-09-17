@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
@@ -6,10 +6,10 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>서양사 최향란 vs 얌물녀 소하준 세기의 맞짱 5부작</title>
-  <meta property="og:title" content="서양사 최향란 vs 얌물녀 소하준 세기의 맞짱 5부작">
-  <meta property="og:description" content="강의실 과자 몰컴부터 복도 추격전, 눈물의 반성문까지 실시간 전말 유출">
-  <meta property="og:image" content="story4.jpg">
+  <title>서양사 최향란 vs 얌물녀 소하준 멀티버스 맞짱 10부작</title>
+  <meta property="og:title" content="서양사 최향란 vs 얌물녀 소하준 멀티버스 맞짱 10부작">
+  <meta property="og:description" content="강의실 과자 몰컴부터 멀티버스 과거 소하준의 난입까지 세기의 대탈출 전말 실시간 유출">
+  <meta property="og:image" content="story10.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -22,6 +22,7 @@
       --pink-glow: rgba(255, 42, 122, 0.45);
       --pink-light: #ff75a6;
       --pink-soft: #ffe4ee;
+      --purple-portal: #c040fb;
       --text: #ffffff;
       --subtext: #b58da3;
     }
@@ -86,7 +87,7 @@
     /* Header */
     .header {
       text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .pink-pill {
@@ -104,7 +105,7 @@
     }
 
     .main-title {
-      font-size: clamp(1.85rem, 7vw, 2.6rem);
+      font-size: clamp(1.8rem, 7vw, 2.55rem);
       font-weight: 900;
       line-height: 1.25;
       background: linear-gradient(135deg, #ffffff 10%, #ff75a6 50%, #ff2a7a 100%);
@@ -120,6 +121,30 @@
       font-weight: 600;
       word-break: keep-all;
       opacity: 0.9;
+    }
+
+    /* Chapter Divider */
+    .chapter-banner {
+      background: linear-gradient(90deg, rgba(255, 42, 122, 0.25), rgba(192, 64, 251, 0.25));
+      border-left: 4px solid var(--pink-main);
+      border-right: 4px solid var(--purple-portal);
+      padding: 12px 18px;
+      border-radius: 12px;
+      margin: 20px 0 16px 0;
+      text-align: center;
+    }
+
+    .chapter-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      color: #fff;
+    }
+
+    .chapter-desc {
+      font-size: 0.82rem;
+      color: var(--pink-light);
+      margin-top: 2px;
     }
 
     /* STORY CARD CONTAINER */
@@ -140,6 +165,11 @@
       overflow: hidden;
     }
 
+    .story-card.portal-mode {
+      border: 1.5px solid rgba(192, 64, 251, 0.5);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.6), 0 0 22px rgba(192, 64, 251, 0.25);
+    }
+
     .story-header {
       display: flex;
       justify-content: space-between;
@@ -155,6 +185,10 @@
       font-weight: 900;
       padding: 3px 10px;
       border-radius: 6px;
+    }
+
+    .episode-badge.portal {
+      background: linear-gradient(135deg, #c040fb, #ff2a7a);
     }
 
     .story-time {
@@ -201,7 +235,11 @@
       border-left: 4px solid var(--pink-main);
     }
 
-    /* Interactive "간다 또 간다" Simulator */
+    .story-card.portal-mode .story-caption {
+      border-left: 4px solid var(--purple-portal);
+    }
+
+    /* Interactive Simulator */
     .action-card {
       background: radial-gradient(circle at center, rgba(255, 42, 122, 0.25) 0%, rgba(28, 12, 23, 0.95) 100%);
       border: 2px solid var(--pink-main);
@@ -319,13 +357,19 @@
 
     <!-- Header -->
     <header class="header">
-      <div class="pink-pill">단독 기획 5부작 실시간 유출</div>
+      <div class="pink-pill">단독 기획 10부작 멀티버스 확장판 실시간 유출</div>
       <h1 class="main-title">서양사 최향란 vs 얌물녀 소하준</h1>
-      <p class="subtitle">강의실 과자 몰컴부터 복도 추격전, 눈물의 반성문까지 세기의 맞짱 전말</p>
+      <p class="subtitle">강의실 과자 몰컴부터 멀티버스 과거 소하준의 난입까지 세기의 대탈출 실화</p>
     </header>
 
-    <!-- 5-PART STORY SECTION -->
+    <!-- STORY SECTION -->
     <main class="story-section">
+
+      <!-- CHAPTER 1 BANNER -->
+      <div class="chapter-banner">
+        <div class="chapter-title">제1막 : 강의실 맞짱과 눈물의 참교육</div>
+        <div class="chapter-desc">과자 몰컴에서 시작된 세기의 추격전</div>
+      </div>
 
       <!-- Episode 1 -->
       <article class="story-card">
@@ -402,13 +446,94 @@
         </div>
       </article>
 
+      <!-- CHAPTER 2 BANNER -->
+      <div class="chapter-banner">
+        <div class="chapter-title">제2막 : 멀티버스 각성과 세기의 대탈출</div>
+        <div class="chapter-desc">안개 속 캘리포니아 소하준의 시공간 난입</div>
+      </div>
+
+      <!-- Episode 6 -->
+      <article class="story-card portal-mode">
+        <div class="story-header">
+          <span class="episode-badge portal">제6부</span>
+          <span class="story-time">시공간 차원 균열</span>
+        </div>
+        <h2 class="story-title">연구실 한가운데 열린 닥터 스트레인지 포털</h2>
+        <div class="story-img-box">
+          <img src="story6.jpg" alt="6부 멀티버스 포털 개방" class="story-img">
+        </div>
+        <div class="story-caption">
+          바닥에서 뺨에 밴드 붙이고 질질 짜며 반성문 쓰던 소하준. 그때 방 한가운데서 보라색 번개와 짙은 산안개가 뿜어져 나오더니 시공간 차원 포털 개방. 캘리포니아 후드티에 뿔테안경 끼고 더블 브이 날리는 과거 전성기 소하준이 씩 웃으며 등장함.
+        </div>
+      </article>
+
+      <!-- Episode 7 -->
+      <article class="story-card portal-mode">
+        <div class="story-header">
+          <span class="episode-badge portal">제7부</span>
+          <span class="story-time">전성기 텐션 난입</span>
+        </div>
+        <h2 class="story-title">교수님 커피 스틸과 반성문 파쇄 쇼</h2>
+        <div class="story-img-box">
+          <img src="story7.jpg" alt="7부 과거 소하준의 난입" class="story-img">
+        </div>
+        <div class="story-caption">
+          등장하자마자 책상 위로 슬라이딩해서 최향란 교수님 모닝 아메리카노 한 모금 스틸하고 반성문이랑 출석부 공중에 꽃가루처럼 날려버리는 과거의 소하준. 최향란 교수님 안경 너머로 안광 폭발하고 바닥에 엎드려 있던 현재 소하준은 입 떡 벌리고 경악함.
+        </div>
+      </article>
+
+      <!-- Episode 8 -->
+      <article class="story-card portal-mode">
+        <div class="story-header">
+          <span class="episode-badge portal">제8부</span>
+          <span class="story-time">합체 공격 발동</span>
+        </div>
+        <h2 class="story-title">쌍둥이 태그매치 간다 또 간다 더블 빔</h2>
+        <div class="story-img-box">
+          <img src="story8.jpg" alt="8부 더블 소하준 합체 공격" class="story-img">
+        </div>
+        <div class="story-caption">
+          기운 차린 현재 소하준이 백팩 방패 들고 일어서자 과거 소하준이 더블 브이 핑거 레이저 장전 완료. 둘이 나란히 서서 동시 함성으로 "간다 또 간다" 외치며 핑크빛 더블 오라 폭발. 최향란 교수님도 양손에 돌돌 만 강의계획서 쌍절곤 들고 전력 응수함.
+        </div>
+      </article>
+
+      <!-- Episode 9 -->
+      <article class="story-card portal-mode">
+        <div class="story-header">
+          <span class="episode-badge portal">제9부</span>
+          <span class="story-time">클라이맥스 탈출</span>
+        </div>
+        <h2 class="story-title">시공간 워프 질주와 포털 슬라이딩 다이빙</h2>
+        <div class="story-img-box">
+          <img src="story9.jpg" alt="9부 포털 탈출전" class="story-img">
+        </div>
+        <div class="story-caption">
+          교수님이 구두 벗어 들고 시속 100km로 돌진해오자 과거 소하준이 현재 소하준 멱살 잡고 차원 포털 안으로 슬라이딩 다이빙. 과자 봉지 품에 꼭 안고 날아가는 소하준의 운동화 바로 코앞에서 교수님의 헛손질 작렬함.
+        </div>
+      </article>
+
+      <!-- Episode 10 -->
+      <article class="story-card portal-mode">
+        <div class="story-header">
+          <span class="episode-badge portal">제10부</span>
+          <span class="story-time">최후의 승리 엔딩</span>
+        </div>
+        <h2 class="story-title">안개 자욱한 데크길과 세기의 더블 브이</h2>
+        <div class="story-img-box">
+          <img src="story10.jpg" alt="10부 더블 브이 엔딩" class="story-img">
+        </div>
+        <div class="story-caption">
+          차원 포털 타고 안개 자욱한 명산 데크길로 무사 탈출 완료. 둘이 나란히 서서 감자칩 나눠 먹으며 카메라 정면 보고 킹받는 더블 브이 포즈 작렬. 저 멀리 차원 창문 너머로 출석부 들고 억울해서 소리 지르는 최향란 교수님을 뒤로한 채 대탈출 성공.
+        </div>
+      </article>
+
     </main>
 
     <!-- Interactive Simulator -->
     <section class="action-card">
-      <div class="action-badge">소하준 출몰 카운터</div>
+      <div class="action-badge">멀티버스 소하준 출몰 카운터</div>
       <div class="counter-num" id="count">0회</div>
-      <div class="status-msg" id="status">버튼 눌러서 소하준 출몰시켜보셈</div>
+      <div class="status-msg" id="status">버튼 눌러서 멀티버스 소하준 소환해보셈</div>
 
       <button class="main-btn" onclick="triggerYam()">
         소하준 간다 또 간다
@@ -468,7 +593,7 @@
     });
 
     const particles = [];
-    const colors = ['#ff2a7a', '#ff75a6', '#ffffff', '#ffb6d3'];
+    const colors = ['#ff2a7a', '#ff75a6', '#ffffff', '#c040fb', '#ffb6d3'];
 
     function spawnBurst(amount = 20) {
       for (let i = 0; i < amount; i++) {
@@ -518,22 +643,25 @@
     const lines = [
       "최향란 교수님 손바닥 안에서 간다 또 간다",
       "복도에서 구두 피해 공중부양 중",
-      "반성문 10장 채우기 전까진 퇴근 불가",
-      "세상 억울한 표정 짓는 중",
-      "다음 학기 서양사 재수강 확정"
+      "연구실 바닥에서 눈물의 반성문 작성 중",
+      "멀티버스에서 과거 소하준 긴급 소환 완료",
+      "캘리포니아 후드티 입고 더블 브이 레이저 장전",
+      "과자 봉지 품에 안고 포털로 슬라이딩 다이빙",
+      "안개 자욱한 데크길에서 둘이서 감자칩 파티 중",
+      "다음 학기 서양사 둘이 손잡고 재수강 확정"
     ];
 
     function triggerYam() {
       count++;
       countEl.innerText = `${count}회`;
       playPop(500 + (count % 8) * 60);
-      spawnBurst(18);
+      spawnBurst(20);
 
       const idx = Math.min(lines.length - 1, Math.floor(count / 2));
       statusEl.innerText = lines[idx];
 
       if (count === 10 || count === 25 || count === 50) {
-        showToast(`반성문 분량 ${count}줄 추가 완료`);
+        showToast(`멀티버스 소하준 ${count}명 집결 완료`);
       }
     }
 
