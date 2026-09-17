@@ -2,22 +2,22 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🚒 자랑스러운 우리들의 영웅! 소방관 임용을 진심으로 축하합니다</title>
-  <meta property="og:title" content="🚒 자랑스러운 우리들의 영웅! 소방관 임용 축하합니다">
-  <meta property="og:description" content="세상에서 가장 뜨거운 곳으로 생명을 구하러 달려가는 가장 용감한 친구에게 보내는 응원">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>🚒 자랑스러운 나의 영웅, 소하준 소방관 임용을 축하한다!</title>
+  <meta property="og:title" content="🚒 자랑스러운 나의 영웅, 소하준 소방관 임용 축하!">
+  <meta property="og:description" content="세상에서 가장 뜨거운 곳으로 생명을 구하러 달려가는 내 친구 소하준에게 보내는 응원">
   <meta property="og:image" content="poster.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #ff4757;
-      --primary-glow: rgba(255, 71, 87, 0.4);
+      --primary-glow: rgba(255, 71, 87, 0.45);
       --gold: #ffd700;
       --gold-glow: rgba(255, 215, 0, 0.4);
-      --dark-bg: #0d1117;
-      --card-bg: rgba(22, 27, 34, 0.75);
+      --dark-bg: #0b0f17;
+      --card-bg: rgba(18, 24, 38, 0.85);
       --border-color: rgba(255, 215, 0, 0.25);
     }
 
@@ -25,19 +25,22 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--dark-bg);
       background-image: 
-        radial-gradient(circle at 10% 20%, rgba(255, 71, 87, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(255, 177, 43, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 50% 50%, #0d1117 0%, #05070a 100%);
+        radial-gradient(circle at 15% 15%, rgba(255, 71, 87, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 85% 75%, rgba(255, 177, 43, 0.16) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, #0b0f17 0%, #04060a 100%);
+      background-attachment: fixed;
       color: #f0f6fc;
       min-height: 100vh;
       overflow-x: hidden;
-      line-height: 1.6;
+      line-height: 1.65;
+      padding-bottom: env(safe-area-inset-bottom);
     }
 
     #confetti-canvas {
@@ -51,86 +54,74 @@
     }
 
     .container {
-      max-width: 820px;
+      max-width: 720px;
       margin: 0 auto;
-      padding: 40px 20px 80px;
+      padding: 30px 16px 70px;
       position: relative;
       z-index: 10;
     }
 
-    /* HEADER */
+    /* 1. HERO HEADER */
     .hero-header {
       text-align: center;
-      margin-bottom: 35px;
-      animation: fadeInDown 1s ease-out;
+      margin-bottom: 28px;
+      animation: fadeInDown 0.8s ease-out;
     }
 
     .badge-pill {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: linear-gradient(135deg, rgba(255, 71, 87, 0.2), rgba(255, 215, 0, 0.2));
+      gap: 6px;
+      background: linear-gradient(135deg, rgba(255, 71, 87, 0.25), rgba(255, 215, 0, 0.2));
       border: 1px solid var(--border-color);
-      padding: 8px 20px;
+      padding: 6px 16px;
       border-radius: 50px;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       font-weight: 700;
       color: var(--gold);
-      margin-bottom: 18px;
-      box-shadow: 0 0 20px var(--gold-glow);
+      margin-bottom: 14px;
+      box-shadow: 0 0 15px var(--gold-glow);
     }
 
     .main-title {
-      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-size: clamp(1.75rem, 6vw, 2.5rem);
       font-weight: 900;
-      line-height: 1.3;
-      background: linear-gradient(135deg, #ffffff 20%, #ffd700 60%, #ff4757 100%);
+      line-height: 1.35;
+      background: linear-gradient(135deg, #ffffff 15%, #ffd700 55%, #ff4757 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
       word-break: keep-all;
     }
 
     .subtitle {
-      font-size: 1.15rem;
-      color: #8b949e;
+      font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+      color: #94a3b8;
       font-weight: 500;
       word-break: keep-all;
+      padding: 0 10px;
     }
 
-    /* POSTER CARD */
+    /* 2. POSTER CARD */
     .poster-card {
       background: var(--card-bg);
-      backdrop-filter: blur(16px);
-      border: 2px solid var(--border-color);
-      border-radius: 28px;
-      padding: 24px;
-      margin-bottom: 40px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 35px rgba(255, 215, 0, 0.15);
+      backdrop-filter: blur(14px);
+      border: 1.5px solid var(--border-color);
+      border-radius: 24px;
+      padding: 16px;
+      margin-bottom: 28px;
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.12);
       text-align: center;
       position: relative;
-      overflow: hidden;
-      animation: fadeInUp 1s ease-out 0.2s both;
-    }
-
-    .poster-card::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255, 215, 0, 0.08) 0%, transparent 60%);
-      pointer-events: none;
+      animation: fadeInUp 0.8s ease-out 0.15s both;
     }
 
     .poster-img-wrap {
-      border-radius: 20px;
+      border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
       position: relative;
       background: #000;
-      max-height: 700px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -139,69 +130,65 @@
     .poster-img {
       width: 100%;
       height: auto;
-      max-height: 700px;
+      max-height: 680px;
       object-fit: cover;
       display: block;
-      transition: transform 0.5s ease;
-    }
-
-    .poster-img:hover {
-      transform: scale(1.02);
+      transition: transform 0.4s ease;
     }
 
     .poster-ribbon {
       position: absolute;
-      bottom: 20px;
+      bottom: 14px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(13, 17, 23, 0.85);
+      background: rgba(11, 15, 23, 0.9);
       backdrop-filter: blur(8px);
       border: 1px solid var(--gold);
-      padding: 10px 24px;
+      padding: 8px 18px;
       border-radius: 30px;
       color: #fff;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: clamp(0.82rem, 3vw, 0.95rem);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 6px;
       white-space: nowrap;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.7);
     }
 
-    /* LETTER SECTION */
+    /* 3. LETTER SECTION */
     .letter-card {
-      background: linear-gradient(145deg, rgba(30, 38, 48, 0.9), rgba(22, 27, 34, 0.9));
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-left: 6px solid #ff4757;
+      background: linear-gradient(145deg, rgba(26, 35, 49, 0.95), rgba(18, 24, 38, 0.95));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-left: 5px solid #ff4757;
       border-radius: 20px;
-      padding: 32px 28px;
-      margin-bottom: 35px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-      animation: fadeInUp 1s ease-out 0.4s both;
+      padding: 24px 20px;
+      margin-bottom: 28px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+      animation: fadeInUp 0.8s ease-out 0.25s both;
     }
 
     .letter-header {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 1.35rem;
+      gap: 8px;
+      font-size: 1.2rem;
       font-weight: 800;
       color: #ffd700;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding-bottom: 12px;
+      padding-bottom: 10px;
     }
 
     .letter-body {
-      font-size: 1.08rem;
+      font-size: clamp(0.98rem, 3.6vw, 1.06rem);
       line-height: 1.85;
-      color: #e6edf3;
+      color: #e2e8f0;
       word-break: keep-all;
     }
 
     .letter-body p {
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .letter-body p:last-child {
@@ -211,160 +198,186 @@
     .highlight-gold {
       color: #ffd700;
       font-weight: 700;
-      background: rgba(255, 215, 0, 0.12);
-      padding: 2px 6px;
+      background: rgba(255, 215, 0, 0.15);
+      padding: 2px 5px;
       border-radius: 4px;
     }
 
     .highlight-red {
       color: #ff6b81;
       font-weight: 700;
-      background: rgba(255, 71, 87, 0.15);
-      padding: 2px 6px;
+      background: rgba(255, 71, 87, 0.18);
+      padding: 2px 5px;
       border-radius: 4px;
     }
 
-    /* PLEDGE GRID */
+    .letter-sign {
+      text-align: right;
+      font-weight: 800;
+      color: #ffd700;
+      margin-top: 18px;
+      font-size: 1rem;
+    }
+
+    /* 4. PLEDGE CARDS */
     .pledge-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 18px;
-      margin-bottom: 35px;
-      animation: fadeInUp 1s ease-out 0.5s both;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 28px;
+      animation: fadeInUp 0.8s ease-out 0.35s both;
+    }
+
+    @media (min-width: 520px) {
+      .pledge-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     .pledge-item {
       background: var(--card-bg);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      padding: 22px;
+      border-radius: 16px;
+      padding: 18px 14px;
       text-align: center;
-      transition: all 0.3s ease;
+      transition: transform 0.2s, border-color 0.2s;
     }
 
     .pledge-item:hover {
-      transform: translateY(-5px);
       border-color: var(--gold);
-      box-shadow: 0 10px 25px rgba(255, 215, 0, 0.15);
+      transform: translateY(-3px);
     }
 
     .pledge-icon {
-      font-size: 2.2rem;
-      margin-bottom: 12px;
-    }
-
-    .pledge-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #fff;
+      font-size: 1.8rem;
       margin-bottom: 8px;
     }
 
-    .pledge-desc {
-      font-size: 0.9rem;
-      color: #8b949e;
-      line-height: 1.5;
+    .pledge-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
     }
 
-    /* CHEER INTERACTION */
+    .pledge-desc {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      line-height: 1.45;
+      word-break: keep-all;
+    }
+
+    /* 5. CHEER INTERACTION */
     .cheer-box {
-      background: radial-gradient(circle at center, rgba(255, 71, 87, 0.2) 0%, rgba(22, 27, 34, 0.8) 100%);
-      border: 2px dashed rgba(255, 71, 87, 0.5);
-      border-radius: 24px;
-      padding: 35px 25px;
+      background: radial-gradient(circle at center, rgba(255, 71, 87, 0.25) 0%, rgba(18, 24, 38, 0.9) 100%);
+      border: 2px dashed rgba(255, 71, 87, 0.55);
+      border-radius: 22px;
+      padding: 26px 18px;
       text-align: center;
-      margin-bottom: 40px;
-      animation: fadeInUp 1s ease-out 0.6s both;
+      margin-bottom: 28px;
+      animation: fadeInUp 0.8s ease-out 0.45s both;
+    }
+
+    .cheer-box h3 {
+      font-size: 1.25rem;
+      color: #fff;
+      font-weight: 800;
     }
 
     .cheer-count-display {
-      font-size: 2.8rem;
+      font-size: clamp(2.4rem, 8vw, 3.2rem);
       font-weight: 900;
       color: #ff4757;
-      margin: 10px 0;
-      text-shadow: 0 0 20px var(--primary-glow);
+      margin: 8px 0;
+      text-shadow: 0 0 25px var(--primary-glow);
+      letter-spacing: 1px;
     }
 
     .cheer-btn {
       background: linear-gradient(135deg, #ff4757, #ff6b81);
       color: #fff;
-      font-size: 1.3rem;
+      font-size: clamp(1.05rem, 4vw, 1.2rem);
       font-weight: 800;
       border: none;
       border-radius: 50px;
-      padding: 16px 42px;
+      padding: 14px 32px;
       cursor: pointer;
-      box-shadow: 0 10px 25px var(--primary-glow);
-      transition: all 0.2s ease;
+      box-shadow: 0 8px 22px var(--primary-glow);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .cheer-btn:hover {
-      transform: scale(1.06);
-      box-shadow: 0 15px 35px rgba(255, 71, 87, 0.6);
+      gap: 8px;
+      margin-top: 6px;
+      width: 100%;
+      max-width: 320px;
+      justify-content: center;
     }
 
     .cheer-btn:active {
-      transform: scale(0.96);
+      transform: scale(0.95);
     }
 
-    /* GUESTBOOK ROLLING PAPER */
+    /* 6. GUESTBOOK ROLLING PAPER */
     .guestbook-card {
       background: var(--card-bg);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 24px;
-      padding: 28px;
-      margin-bottom: 35px;
-      animation: fadeInUp 1s ease-out 0.7s both;
+      border-radius: 22px;
+      padding: 22px 18px;
+      margin-bottom: 28px;
+      animation: fadeInUp 0.8s ease-out 0.55s both;
     }
 
     .guestbook-title {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 800;
       color: #ffd700;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .msg-form {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-bottom: 24px;
+      gap: 10px;
+      margin-bottom: 20px;
     }
 
     .form-row {
       display: flex;
+      flex-direction: column;
       gap: 10px;
     }
 
+    @media (min-width: 480px) {
+      .form-row {
+        flex-direction: row;
+      }
+      .input-name {
+        flex: 0 0 130px;
+      }
+      .input-msg {
+        flex: 1;
+      }
+    }
+
     .input-field {
-      background: rgba(13, 17, 23, 0.8);
+      background: rgba(11, 15, 23, 0.9);
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 12px;
-      padding: 12px 16px;
+      padding: 12px 14px;
       color: #fff;
       font-size: 0.95rem;
       font-family: inherit;
       outline: none;
+      width: 100%;
       transition: border-color 0.2s;
     }
 
     .input-field:focus {
       border-color: #ffd700;
-    }
-
-    .input-name {
-      flex: 0 0 150px;
-    }
-
-    .input-msg {
-      flex: 1;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
     }
 
     .submit-btn {
@@ -372,11 +385,12 @@
       color: #fff;
       border: none;
       border-radius: 12px;
-      padding: 12px 24px;
+      padding: 12px 20px;
       font-weight: 700;
       font-size: 0.95rem;
       cursor: pointer;
       transition: background 0.2s;
+      width: 100%;
     }
 
     .submit-btn:hover {
@@ -384,16 +398,16 @@
     }
 
     .msg-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
-      max-height: 380px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 400px;
       overflow-y: auto;
-      padding-right: 5px;
+      padding-right: 4px;
     }
 
     .msg-item {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 14px;
       padding: 14px 16px;
@@ -404,29 +418,31 @@
       font-weight: 700;
       color: #58a6ff;
       font-size: 0.88rem;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
 
     .msg-time {
       font-size: 0.75rem;
-      color: #8b949e;
+      color: #64748b;
       font-weight: normal;
     }
 
     .msg-text {
       font-size: 0.92rem;
-      color: #c9d1d9;
-      line-height: 1.45;
+      color: #cbd5e1;
+      line-height: 1.5;
+      word-break: break-word;
     }
 
-    /* SHARE FOOTER */
+    /* 7. SHARE & FOOTER */
     .share-footer {
       text-align: center;
-      padding: 20px;
+      padding: 18px;
       background: rgba(255, 255, 255, 0.03);
-      border-radius: 20px;
+      border-radius: 18px;
       border: 1px solid rgba(255, 255, 255, 0.06);
     }
 
@@ -434,7 +450,7 @@
       background: rgba(255, 215, 0, 0.15);
       border: 1px solid var(--gold);
       color: var(--gold);
-      padding: 10px 24px;
+      padding: 11px 24px;
       border-radius: 30px;
       font-weight: 700;
       font-size: 0.95rem;
@@ -454,21 +470,24 @@
     /* TOAST */
     .toast {
       position: fixed;
-      bottom: 30px;
+      bottom: 24px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(13, 17, 23, 0.95);
+      background: rgba(11, 15, 23, 0.96);
       border: 1px solid var(--gold);
       color: #ffd700;
-      padding: 12px 28px;
+      padding: 12px 24px;
       border-radius: 50px;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       box-shadow: 0 10px 30px rgba(0,0,0,0.8);
       z-index: 1000;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s ease;
+      text-align: center;
+      white-space: nowrap;
+      max-width: 90vw;
     }
 
     .toast.show {
@@ -476,15 +495,15 @@
     }
 
     @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
+      from { opacity: 0; transform: translateY(-25px); }
       to { opacity: 1; transform: translateY(0); }
     }
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
+      from { opacity: 0; transform: translateY(25px); }
       to { opacity: 1; transform: translateY(0); }
     }
     @keyframes popIn {
-      from { opacity: 0; transform: scale(0.8); }
+      from { opacity: 0; transform: scale(0.9); }
       to { opacity: 1; transform: scale(1); }
     }
   </style>
@@ -501,16 +520,16 @@
       <div class="badge-pill">
         <span>🇰🇷</span> 대한민국 소방청 신임 소방관 임용
       </div>
-      <h1 class="main-title">자랑스러운 우리들의 영웅!<br>소방관 임용을 진심으로 축하합니다! 🚒</h1>
-      <p class="subtitle">모두가 도망치는 가장 뜨겁고 위험한 곳으로 달려가는 세상에서 가장 용감한 친구에게</p>
+      <h1 class="main-title">자랑스러운 나의 영웅!<br>소하준 소방관 임용을 축하한다! 🚒</h1>
+      <p class="subtitle">세상에서 가장 뜨겁고 위험한 곳으로 달려가는 내 친구 하준이에게</p>
     </header>
 
     <!-- 2. POSTER SHOWCASE -->
     <div class="poster-card">
       <div class="poster-img-wrap">
-        <img src="poster.jpg" alt="대한민국 소방관 임용 축하 포스터" class="poster-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=900&auto=format&fit=crop&q=80';">
+        <img src="poster.jpg" alt="소하준 소방관 임용 축하 포스터" class="poster-img">
         <div class="poster-ribbon">
-          <span>🎖️</span> 대한민국 정예 소방관 임용을 축하합니다
+          <span>🎖️</span> 대한민국 정예 소방관 소하준
         </div>
       </div>
     </div>
@@ -518,21 +537,21 @@
     <!-- 3. HEARTWARMING LETTER -->
     <section class="letter-card">
       <div class="letter-header">
-        <span>💌</span> 소방관이 된 친구에게 보내는 편지
+        <span>💌</span> 소방관이 된 친구 하준이에게
       </div>
       <div class="letter-body">
         <p>
-          그동안 힘든 훈련과 수많은 밤을 새우며 <span class="highlight-gold">피땀 흘려 노력했던 시간들</span>을 알기에, 소방관으로 당당하게 첫발을 내딛는 오늘이 그 무엇보다 기쁘고 자랑스럽다!
+          <strong>하준아,</strong> 그동안 힘든 수험 생활과 고된 훈련을 묵묵히 버텨내며 <span class="highlight-gold">피땀 흘려 노력했던 시간들</span>을 누구보다 곁에서 잘 알기에, 소방관으로 당당하게 첫발을 내딛는 오늘이 그 무엇보다 기쁘고 자랑스럽다!
         </p>
         <p>
-          남들의 가장 절박하고 위태로운 순간에 가장 먼저 손을 내미는 고귀한 사명감을 가진 너를 진심으로 존경해. 하지만 잊지 마라, <span class="highlight-red">누군가의 생명을 구하는 영웅이기 이전에, 너는 우리에게 가장 소중하고 둘도 없는 친구야.</span>
+          남들의 가장 절박하고 위태로운 순간에 가장 먼저 손을 내미는 고귀한 사명감을 가진 너를 진심으로 존경해. 하지만 잊지 마라, <span class="highlight-red">누군가의 생명을 구하는 영웅이기 이전에, 너는 나에게 세상에 둘도 없는 가장 소중한 친구야.</span>
         </p>
         <p>
-          어떤 현장에서든 <span class="highlight-gold">언제나 안전이 최우선이고, 무사히 돌아오는 것이 첫 번째 임무</span>라는 걸 가슴에 새겨줘. 지치고 힘들 때면 언제든 기댈 수 있는 우리가 뒤에서 항상 응원하고 있을게!
+          어떤 현장에서든 <span class="highlight-gold">언제나 안전이 최우선이고, 무사히 돌아오는 것이 첫 번째 임무</span>라는 걸 가슴에 새겨줘. 지치고 힘들 때면 언제든 기댈 수 있도록 내가 뒤에서 항상 열렬히 응원할게!
         </p>
-        <p style="text-align: right; font-weight: 700; color: #ffd700; margin-top: 20px;">
-          - 언제나 너를 가장 자랑스러워하는 친구들이 -
-        </p>
+        <div class="letter-sign">
+          - 너의 가장 든든한 친구가 -
+        </div>
       </div>
     </section>
 
@@ -541,7 +560,7 @@
       <div class="pledge-item">
         <div class="pledge-icon">🛡️</div>
         <div class="pledge-title">제1수칙 : 무사 귀환</div>
-        <div class="pledge-desc">시민의 안전도 중요하지만, 네 자신의 안전과 건강이 언제나 1순위!</div>
+        <div class="pledge-desc">시민의 안전도 중요하지만, 하준이 너의 안전이 언제나 1순위!</div>
       </div>
 
       <div class="pledge-item">
@@ -553,32 +572,32 @@
       <div class="pledge-item">
         <div class="pledge-icon">🤝</div>
         <div class="pledge-title">평생 함께할 든든한 아군</div>
-        <div class="pledge-desc">네 뒤에는 언제나 너를 믿고 열렬히 응원하는 우리가 있어!</div>
+        <div class="pledge-desc">네 뒤에는 언제나 너를 믿고 열렬히 응원하는 친구가 있어!</div>
       </div>
     </div>
 
     <!-- 5. CHEER INTERACTIVE BUTTON -->
     <section class="cheer-box">
-      <h3 style="font-size: 1.4rem; color: #fff;">👏 친구에게 뜨거운 응원 보내기</h3>
-      <p style="color: #8b949e; font-size: 0.95rem; margin-top: 4px;">버튼을 눌러 친구의 기운을 팍팍 북돋아주세요!</p>
+      <h3>👏 하준이에게 뜨거운 응원 보내기</h3>
+      <p style="color: #94a3b8; font-size: 0.9rem; margin-top: 4px;">버튼을 눌러 친구의 기운을 팍팍 북돋아주세요!</p>
       
       <div class="cheer-count-display" id="cheer-count">119</div>
       
       <button class="cheer-btn" onclick="sendCheer()">
-        <span>🔥</span> 응원과 박수 보내기 <span>👏</span>
+        <span>🔥</span> 하준이 응원하기 <span>👏</span>
       </button>
     </section>
 
     <!-- 6. ROLLING PAPER / GUESTBOOK -->
     <section class="guestbook-card">
       <div class="guestbook-title">
-        <span>💬</span> 축하의 롤링페이퍼 한마디
+        <span>💬</span> 하준이를 위한 축하 롤링페이퍼
       </div>
 
       <form class="msg-form" onsubmit="addMessage(event)">
         <div class="form-row">
-          <input type="text" id="author-input" class="input-field input-name" placeholder="이름 (예: 멋진친구)" required maxlength="12">
-          <input type="text" id="content-input" class="input-field input-msg" placeholder="친구에게 힘이 되는 응원 한마디를 적어주세요!" required maxlength="100">
+          <input type="text" id="author-input" class="input-field input-name" placeholder="이름 (예: 베프)" required maxlength="12">
+          <input type="text" id="content-input" class="input-field input-msg" placeholder="하준이에게 힘이 되는 응원 한마디를 적어주세요!" required maxlength="100">
         </div>
         <button type="submit" class="submit-btn">💌 응원 남기기</button>
       </form>
@@ -590,7 +609,7 @@
 
     <!-- 7. SHARE & FOOTER -->
     <footer class="share-footer">
-      <p style="color: #8b949e; font-size: 0.95rem;">친구들과 함께 링크를 공유하고 다 같이 축하해 주세요!</p>
+      <p style="color: #94a3b8; font-size: 0.92rem;">하준이에게 이 축하 페이지 링크를 전달해 주세요!</p>
       <button class="share-btn" onclick="copyLink()">
         <span>🔗</span> 축하 페이지 링크 복사하기
       </button>
@@ -598,7 +617,7 @@
 
   </div>
 
-  <div id="toast" class="toast">✅ 링크가 복사되었습니다! 친구들에게 공유해보세요.</div>
+  <div id="toast" class="toast">✅ 링크가 복사되었습니다! 카톡에 공유해보세요.</div>
 
   <script>
     // Audio Synthesizer (Fanfare sound)
@@ -640,24 +659,24 @@
       return {
         x: x || Math.random() * width,
         y: y || (Math.random() * height - height),
-        size: Math.random() * 8 + 4,
+        size: Math.random() * 7 + 4,
         color: colors[Math.floor(Math.random() * colors.length)],
         speedY: Math.random() * 3 + 2,
         speedX: Math.random() * 2 - 1,
         rotation: Math.random() * 360,
-        rotationSpeed: Math.random() * 10 - 5
+        rotationSpeed: Math.random() * 8 - 4
       };
     }
 
-    for (let i = 0; i < 70; i++) {
+    for (let i = 0; i < 60; i++) {
       particles.push(createParticle());
     }
 
     function burstConfetti() {
-      for (let i = 0; i < 40; i++) {
-        const p = createParticle(width / 2, height / 2 + 100);
+      for (let i = 0; i < 35; i++) {
+        const p = createParticle(width / 2, height / 2 + 80);
         p.speedY = Math.random() * -12 - 4;
-        p.speedX = Math.random() * 14 - 7;
+        p.speedX = Math.random() * 12 - 6;
         particles.push(p);
       }
     }
@@ -678,7 +697,7 @@
         ctx.restore();
 
         if (p.y > height) {
-          if (particles.length > 70) {
+          if (particles.length > 60) {
             particles.splice(i, 1);
             i--;
           } else {
@@ -692,28 +711,28 @@
     renderConfetti();
 
     // Cheer Counter
-    let cheers = parseInt(localStorage.getItem('firefighter_cheers') || '119');
+    let cheers = parseInt(localStorage.getItem('shj_firefighter_cheers') || '119');
     document.getElementById('cheer-count').innerText = cheers.toLocaleString();
 
     function sendCheer() {
       cheers++;
-      localStorage.setItem('firefighter_cheers', cheers);
+      localStorage.setItem('shj_firefighter_cheers', cheers);
       document.getElementById('cheer-count').innerText = cheers.toLocaleString();
       playCheerSound();
       burstConfetti();
-      showToast('🔥 응원이 친구에게 전달되었습니다! (+1)');
+      showToast('🔥 하준이에게 응원이 전달되었습니다! (+1)');
     }
 
-    // Guestbook Messages
+    // Default heartfelt messages for So Ha-jun
     const defaultMessages = [
-      { author: '불꽃친구', text: '합격 소식 듣고 소름 돋았다! 언제나 안전이 1순위다 몸조심해!', time: '방금 전' },
-      { author: '소방동기', text: '축하해 친구야! 자랑스러운 대한민국 소방관 출동 준비 완료!', time: '10분 전' },
-      { author: '든든한친구', text: '네 꿈을 이룬 모습을 보니 정말 멋지다. 언제나 응원할게!', time: '1시간 전' },
-      { author: '영웅팬클럽', text: '다치지 말고 항상 무사귀환하자! 대한민국 최고의 소방관 화이팅!', time: '3시간 전' }
+      { author: '너의 든든한 친구', text: '하준아 정복 입은 모습 보니까 진짜 가슴 벅차오른다. 다치지 말고 언제나 무사귀환하자!', time: '방금 전' },
+      { author: '소방 파이팅', text: '소방관 소하준 출동 준비 완료! 대한민국 최고의 소방관이 될 거야.', time: '10분 전' },
+      { author: '응원단장', text: '하준이 밥 잘 챙겨 먹고 체력 관리 잘해라! 언제든 술 한잔 생각나면 연락해!', time: '1시간 전' },
+      { author: '평생친구', text: '너 시험 준비할 때 고생 많았던 거 다 안다. 결실을 맺어서 너무 자랑스럽다 하준아!', time: '3시간 전' }
     ];
 
     function loadMessages() {
-      const saved = localStorage.getItem('firefighter_msgs');
+      const saved = localStorage.getItem('shj_firefighter_msgs');
       const list = saved ? JSON.parse(saved) : defaultMessages;
       const container = document.getElementById('msg-container');
       container.innerHTML = '';
@@ -737,10 +756,10 @@
       const text = document.getElementById('content-input').value.trim();
       if (!author || !text) return;
 
-      const saved = localStorage.getItem('firefighter_msgs');
+      const saved = localStorage.getItem('shj_firefighter_msgs');
       const list = saved ? JSON.parse(saved) : defaultMessages;
       list.unshift({ author, text, time: '방금 전' });
-      localStorage.setItem('firefighter_msgs', JSON.stringify(list));
+      localStorage.setItem('shj_firefighter_msgs', JSON.stringify(list));
 
       document.getElementById('author-input').value = '';
       document.getElementById('content-input').value = '';
@@ -774,7 +793,7 @@
 
     window.onload = () => {
       loadMessages();
-      setTimeout(burstConfetti, 500);
+      setTimeout(burstConfetti, 400);
     };
   </script>
 </body>
