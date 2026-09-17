@@ -6,21 +6,23 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>소하준 얌물녀 실시간 근황</title>
-  <meta property="og:title" content="소하준 얌물녀 실시간 근황">
-  <meta property="og:description" content="솔직히 소하준 얌물녀인 거 모르는 사람 아직도 있음?">
+  <title>얌물녀 소하준 간다 또 간다</title>
+  <meta property="og:title" content="얌물녀 소하준 간다 또 간다">
+  <meta property="og:description" content="가만히 있다가 또 슬그머니 기어나오는 그 사람. 오늘자 얌전한 척 레전드 갱신.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #101010;
-      --card-bg: #181818;
-      --border: #2e2e2e;
-      --text: #f3f5f7;
-      --subtext: #777777;
-      --accent: #ff3040;
-      --link: #3b82f6;
+      --bg: #0e050b;
+      --card-bg: rgba(28, 12, 23, 0.88);
+      --border: rgba(255, 64, 129, 0.35);
+      --pink-main: #ff2a7a;
+      --pink-glow: rgba(255, 42, 122, 0.45);
+      --pink-light: #ff75a6;
+      --pink-soft: #ffe4ee;
+      --text: #ffffff;
+      --subtext: #b58da3;
     }
 
     * {
@@ -33,335 +35,328 @@
     body {
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(255, 42, 122, 0.28) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(255, 117, 166, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, #0e050b 0%, #050204 100%);
+      background-attachment: fixed;
       color: var(--text);
       min-height: 100vh;
-      line-height: 1.5;
+      line-height: 1.6;
       padding-bottom: 60px;
     }
 
-    /* Top Navigation Bar */
-    .top-nav {
-      position: sticky;
+    #sparkle-canvas {
+      position: fixed;
       top: 0;
-      z-index: 100;
-      background: rgba(16, 16, 16, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 52px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: -0.2px;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 999;
     }
 
     .container {
-      max-width: 580px;
+      max-width: 600px;
       margin: 0 auto;
-      padding: 16px;
+      padding: 24px 16px;
+      position: relative;
+      z-index: 10;
     }
 
-    /* Profile Header */
+    /* Sound Switch */
+    .sound-btn {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 1000;
+      background: rgba(28, 12, 23, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      color: var(--pink-light);
+      padding: 7px 14px;
+      border-radius: 30px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 42, 122, 0.2);
+    }
+
+    /* Top Badge & Header */
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .pink-pill {
+      display: inline-block;
+      background: rgba(255, 42, 122, 0.18);
+      border: 1px solid var(--pink-main);
+      color: var(--pink-light);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+      margin-bottom: 12px;
+      box-shadow: 0 0 15px var(--pink-glow);
+    }
+
+    .main-title {
+      font-size: clamp(2rem, 7.5vw, 2.7rem);
+      font-weight: 900;
+      line-height: 1.25;
+      background: linear-gradient(135deg, #ffffff 10%, #ff75a6 50%, #ff2a7a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+      word-break: keep-all;
+    }
+
+    .subtitle {
+      font-size: clamp(0.95rem, 3.8vw, 1.08rem);
+      color: var(--pink-soft);
+      font-weight: 600;
+      word-break: keep-all;
+      opacity: 0.9;
+    }
+
+    /* Profile Card */
     .profile-card {
-      padding: 20px 4px 16px;
-      border-bottom: 1px solid var(--border);
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1.5px solid var(--border);
+      border-radius: 22px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 25px rgba(255, 42, 122, 0.12);
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
 
-    .profile-row {
+    .profile-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .profile-info h1 {
-      font-size: 1.45rem;
-      font-weight: 800;
-      letter-spacing: -0.3px;
+    .profile-name {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: #fff;
     }
 
-    .profile-handle {
-      font-size: 0.88rem;
-      color: var(--subtext);
+    .profile-sub {
+      font-size: 0.85rem;
+      color: var(--pink-light);
+      font-weight: 600;
       margin-top: 2px;
     }
 
-    .profile-avatar {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #333333, #222222);
-      border: 1px solid var(--border);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #aaa;
+    .profile-badge {
+      background: linear-gradient(135deg, #ff2a7a, #ff75a6);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 20px;
     }
 
-    .profile-bio {
-      font-size: 0.95rem;
-      color: #d1d5db;
-      line-height: 1.5;
+    .profile-desc {
+      font-size: 0.94rem;
+      color: var(--pink-soft);
+      line-height: 1.6;
       word-break: keep-all;
     }
 
-    .profile-meta {
-      font-size: 0.82rem;
-      color: var(--subtext);
-      display: flex;
-      gap: 12px;
-    }
-
-    /* Action Tab */
-    .tab-bar {
-      display: flex;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 12px;
-    }
-
-    .tab-item {
-      flex: 1;
+    /* Interactive "간다 또 간다" Simulator */
+    .action-card {
+      background: radial-gradient(circle at center, rgba(255, 42, 122, 0.25) 0%, rgba(28, 12, 23, 0.95) 100%);
+      border: 2px solid var(--pink-main);
+      border-radius: 22px;
+      padding: 24px 18px;
       text-align: center;
-      padding: 12px 0;
-      font-size: 0.9rem;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(255, 42, 122, 0.25);
+    }
+
+    .action-badge {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--pink-light);
+      margin-bottom: 4px;
+    }
+
+    .counter-num {
+      font-size: clamp(3rem, 11vw, 4.2rem);
+      font-weight: 900;
+      color: var(--pink-main);
+      line-height: 1.1;
+      margin: 6px 0;
+      text-shadow: 0 0 25px var(--pink-glow);
+    }
+
+    .status-msg {
+      font-size: 0.98rem;
       font-weight: 700;
-      color: var(--subtext);
+      color: #fff;
+      margin-bottom: 14px;
+      min-height: 24px;
+      word-break: keep-all;
+    }
+
+    .main-btn {
+      background: linear-gradient(135deg, #ff2a7a, #ff6595);
+      color: #fff;
+      font-size: clamp(1.1rem, 4.5vw, 1.25rem);
+      font-weight: 900;
+      border: none;
+      border-radius: 50px;
+      padding: 16px 36px;
       cursor: pointer;
-      position: relative;
+      box-shadow: 0 10px 25px var(--pink-glow);
+      transition: transform 0.12s, box-shadow 0.12s;
+      width: 100%;
+      max-width: 340px;
     }
 
-    .tab-item.active {
-      color: var(--text);
-      border-bottom: 2px solid var(--text);
+    .main-btn:active {
+      transform: scale(0.95);
     }
 
-    /* Feed Threads */
-    .thread-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .thread-card {
+    /* SNS Tone Feeds */
+    .feed-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 18px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+      border-radius: 20px;
+      padding: 20px 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
 
-    .thread-author-row {
+    .feed-header {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 10px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 8px;
     }
 
-    .small-avatar {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: #2a2a2a;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #999;
-      border: 1px solid var(--border);
+    .feed-user {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--pink-light);
     }
 
-    .author-meta {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .author-name {
-      font-size: 0.92rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .post-badge {
-      font-size: 0.72rem;
-      background: #2a2a2a;
-      color: #aaa;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-weight: 600;
-    }
-
-    .post-time {
+    .feed-time {
       font-size: 0.78rem;
       color: var(--subtext);
     }
 
-    .thread-content {
-      font-size: 0.98rem;
-      color: #e5e7eb;
-      line-height: 1.65;
+    .feed-body {
+      font-size: 0.97rem;
+      color: #f1f2f6;
+      line-height: 1.7;
       word-break: keep-all;
     }
 
-    .thread-content p {
+    .feed-body p {
       margin-bottom: 10px;
     }
 
-    .thread-content p:last-child {
+    .feed-body p:last-child {
       margin-bottom: 0;
     }
 
-    .highlight-word {
-      color: #fff;
-      font-weight: 700;
+    .highlight {
+      color: var(--pink-main);
+      font-weight: 800;
       text-decoration: underline;
       text-underline-offset: 3px;
     }
 
-    /* Interaction Bar */
-    .action-row {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      padding-top: 8px;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    /* Teasing Points Grid */
+    .points-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 22px;
     }
 
-    .action-btn {
-      background: transparent;
-      border: none;
-      color: var(--subtext);
-      font-size: 0.86rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 0;
-      transition: color 0.15s;
+    @media (min-width: 500px) {
+      .points-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
-    .action-btn.liked {
-      color: var(--accent);
-    }
-
-    .action-btn:hover {
-      color: var(--text);
-    }
-
-    /* Comment Write Section */
-    .comment-section {
-      background: var(--card-bg);
+    .point-box {
+      background: rgba(28, 12, 23, 0.75);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 16px;
-      margin-top: 6px;
+      padding: 16px 12px;
+      text-align: center;
     }
 
-    .comment-title {
+    .point-title {
       font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: var(--text);
+      font-weight: 800;
+      color: var(--pink-light);
+      margin-bottom: 6px;
     }
 
-    .comment-form {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .input-field {
-      background: #111;
-      border: 1px solid var(--border);
-      color: #fff;
-      padding: 10px 14px;
-      border-radius: 10px;
-      font-size: 0.9rem;
-      outline: none;
-      font-family: inherit;
-    }
-
-    .input-field:focus {
-      border-color: #555;
-    }
-
-    .submit-btn {
-      background: #fff;
-      color: #000;
-      border: none;
-      padding: 10px;
-      border-radius: 10px;
-      font-size: 0.88rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-
-    .submit-btn:hover {
+    .point-text {
+      font-size: 0.84rem;
+      color: var(--pink-soft);
+      line-height: 1.45;
+      word-break: keep-all;
       opacity: 0.85;
     }
 
-    .comment-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 18px;
+      background: rgba(255, 42, 122, 0.05);
+      border-radius: 18px;
+      border: 1px solid var(--border);
     }
 
-    .comment-item {
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
+    .share-btn {
+      background: rgba(255, 42, 122, 0.2);
+      border: 1.5px solid var(--pink-main);
+      color: #fff;
+      padding: 12px 26px;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.2s;
     }
 
-    .comment-item:last-child {
-      border-bottom: none;
+    .share-btn:hover {
+      background: var(--pink-main);
     }
 
-    .comment-user {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: #9ca3af;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .comment-text {
-      font-size: 0.9rem;
-      color: #e5e7eb;
-      line-height: 1.45;
-      word-break: break-word;
-    }
-
-    /* Toast */
     .toast {
       position: fixed;
       bottom: 24px;
       left: 50%;
       transform: translateX(-50%);
-      background: #222;
-      border: 1px solid #444;
+      background: rgba(28, 12, 23, 0.96);
+      border: 1.5px solid var(--pink-main);
       color: #fff;
-      padding: 10px 20px;
-      border-radius: 30px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 0.88rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
       z-index: 1000;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.25s ease;
+      transition: opacity 0.25s;
       white-space: nowrap;
     }
 
@@ -372,229 +367,225 @@
 </head>
 <body>
 
-  <!-- Top Nav -->
-  <nav class="top-nav">
-    <span>실시간 트렌드</span>
-  </nav>
+  <button class="sound-btn" onclick="toggleSound()">
+    사운드 ON
+  </button>
+
+  <canvas id="sparkle-canvas"></canvas>
 
   <div class="container">
 
-    <!-- Profile Header -->
-    <header class="profile-card">
-      <div class="profile-row">
-        <div class="profile-info">
-          <h1>소하준</h1>
-          <div class="profile-handle">@so_hajun · 실시간 1위</div>
-        </div>
-        <div class="profile-avatar">소하준</div>
-      </div>
-      <p class="profile-bio">
-        자칭 평화주의자. 타칭 얌물녀의 정석. 남들 다 아는데 본인만 얌전한 척 조용히 넘어갈 수 있다고 믿는 편.
-      </p>
-      <div class="profile-meta">
-        <span>팔로워 1.4만</span>
-        <span>언급 8,920회</span>
-      </div>
+    <!-- Header -->
+    <header class="header">
+      <div class="pink-pill">실시간 트렌드 1위 소하준</div>
+      <h1 class="main-title">얌물녀 소하준, 간다 또 간다</h1>
+      <p class="subtitle">가만히 있다가 또 슬그머니 기어나오는 그 사람. 오늘자 얌전한 척 레전드 갱신.</p>
     </header>
 
-    <!-- Tabs -->
-    <div class="tab-bar">
-      <div class="tab-item active">스레드</div>
-      <div class="tab-item">답글</div>
-      <div class="tab-item">하이라이트</div>
+    <!-- Profile -->
+    <section class="profile-card">
+      <div class="profile-top">
+        <div>
+          <div class="profile-name">소하준</div>
+          <div class="profile-sub">@so_hajun · 국민 얌물녀</div>
+        </div>
+        <div class="profile-badge">얌물력 100%</div>
+      </div>
+      <p class="profile-desc">
+        세상에서 제일 조용하고 무해한 표정 짓고 있다가 자기 챙길 거 생기면 저 멀리서 빛의 속도로 출몰함. 반박 시 네 말이 다 맞음.
+      </p>
+    </section>
+
+    <!-- Interactive Simulator -->
+    <section class="action-card">
+      <div class="action-badge">소하준 얌물 출몰 카운터</div>
+      <div class="counter-num" id="count">0회</div>
+      <div class="status-msg" id="status">버튼 눌러서 소하준 출몰시켜보셈</div>
+
+      <button class="main-btn" onclick="triggerYam()">
+        소하준 간다 또 간다
+      </button>
+    </section>
+
+    <!-- SNS Style Feeds -->
+    <article class="feed-card">
+      <div class="feed-header">
+        <span class="feed-user">실시간 목격담</span>
+        <span class="feed-time">방금 전</span>
+      </div>
+      <div class="feed-body">
+        <p>
+          솔직히 소하준 <span class="highlight">얌물녀</span>인 거 모르는 사람 아직도 있음?
+        </p>
+        <p>
+          평소엔 단톡방에서 읽씹하고 숨죽이고 있다가 어디서 맛있는 거 먹는다거나 콩고물 떨어질 거 같으면 조용히 기어나와서 간다 또 간다 시전함.
+        </p>
+        <p>
+          눈 동그랗게 뜨고 아무것도 모른다는 표정 짓는 게 제일 킬포임. 다들 알면서 넘어가는 거니까 양심 챙기셈.
+        </p>
+      </div>
+    </article>
+
+    <article class="feed-card">
+      <div class="feed-header">
+        <span class="feed-user">팩트 폭격기</span>
+        <span class="feed-time">15분 전</span>
+      </div>
+      <div class="feed-body">
+        <p>
+          얌물녀 소하준 특.
+        </p>
+        <p>
+          1. 남들 다 일할 땐 세상 조용하게 배경처럼 숨어있음.<br>
+          2. 계산할 때 되면 갑자기 신발끈 묶으러 감.<br>
+          3. 그래놓고 본인은 세상에서 제일 착하고 얌전한 사람인 줄 앎.
+        </p>
+        <p>
+          하준아 보고 있으면 이번엔 네가 먼저 지갑 열어라. 이번에도 얌전한 척 넘어가면 진짜 박제함.
+        </p>
+      </div>
+    </article>
+
+    <!-- 3 Facts Grid -->
+    <div class="points-grid">
+      <div class="point-box">
+        <div class="point-title">포커페이스 달인</div>
+        <div class="point-text">세상 무해한 표정으로 뒤에서 실속 다 챙김</div>
+      </div>
+
+      <div class="point-box">
+        <div class="point-title">칼같은 출몰 타이밍</div>
+        <div class="point-text">밥 먹을 때만 되면 저 멀리서 간다 또 간다</div>
+      </div>
+
+      <div class="point-box">
+        <div class="point-title">양심 챙기기 필수</div>
+        <div class="point-text">모른 척하기 없기 이번엔 네가 밥 사셈</div>
+      </div>
     </div>
 
-    <!-- Feed Threads -->
-    <main class="thread-list">
-
-      <!-- Post 1 -->
-      <article class="thread-card">
-        <div class="thread-author-row">
-          <div class="small-avatar">익명</div>
-          <div class="author-meta">
-            <span class="author-name">실시간 폭로 제보 <span class="post-badge">HOT</span></span>
-            <span class="post-time">10분 전</span>
-          </div>
-        </div>
-        <div class="thread-content">
-          <p>
-            솔직히 소하준 <span class="highlight-word">얌물녀</span>인 거 여태 모르는 사람 아직도 있음?
-          </p>
-          <p>
-            남들 앞에서만 세상 조용하고 무해한 척 눈 동그랗게 뜨고 있는데 뒤에서 야금야금 다 챙겨먹는 거 진짜 볼 때마다 감탄 나옴. 
-          </p>
-          <p>
-            다들 알면서도 웃겨서 가만히 보고 있는 건데 진짜 자기가 티 안 나는 줄 아는 게 제일 킬포임.
-          </p>
-        </div>
-        <div class="action-row">
-          <button class="action-btn" id="like-btn-1" onclick="toggleLike(1)">
-            <span id="like-text-1">좋아요 0</span>
-          </button>
-          <button class="action-btn" onclick="copyShareLink()">
-            공유하기
-          </button>
-        </div>
-      </article>
-
-      <!-- Post 2 -->
-      <article class="thread-card">
-        <div class="thread-author-row">
-          <div class="small-avatar">지인</div>
-          <div class="author-meta">
-            <span class="author-name">소하준 최측근</span>
-            <span class="post-time">32분 전</span>
-          </div>
-        </div>
-        <div class="thread-content">
-          <p>
-            소하준식 대화 패턴 특.
-          </p>
-          <p>
-            1. 평소엔 톡방에 아무 말도 안 하고 읽씹하거나 숨어있음.<br>
-            2. 어디서 콩고물 떨어질 거 같으면 조용히 기어나와서 자연스럽게 한자리 차지함.<br>
-            3. 계산할 타이밍 오면 갑자기 세상에서 제일 바쁜 사람 됨.
-          </p>
-          <p>
-            하준아 양심이라는 게 있으면 이번에는 네가 먼저 지갑 열어라. 보고 있는 거 다 안다.
-          </p>
-        </div>
-        <div class="action-row">
-          <button class="action-btn" id="like-btn-2" onclick="toggleLike(2)">
-            <span id="like-text-2">좋아요 0</span>
-          </button>
-          <button class="action-btn" onclick="copyShareLink()">
-            공유하기
-          </button>
-        </div>
-      </article>
-
-      <!-- Post 3 -->
-      <article class="thread-card">
-        <div class="thread-author-row">
-          <div class="small-avatar">팩폭</div>
-          <div class="author-meta">
-            <span class="author-name">팩트체커</span>
-            <span class="post-time">1시간 전</span>
-          </div>
-        </div>
-        <div class="thread-content">
-          <p>
-            소하준 이 글 보고 카톡방에서 또 모른 척 딴소리 시전할 확률 100퍼센트에 전재산 건다.
-          </p>
-          <p>
-            찔리면 반박을 하든가 밥을 사든가 둘 중 하나만 선택하셈. 반박 시 네 말이 다 맞음.
-          </p>
-        </div>
-        <div class="action-row">
-          <button class="action-btn" id="like-btn-3" onclick="toggleLike(3)">
-            <span id="like-text-3">좋아요 0</span>
-          </button>
-          <button class="action-btn" onclick="copyShareLink()">
-            공유하기
-          </button>
-        </div>
-      </article>
-
-      <!-- Realtime Comments -->
-      <section class="comment-section">
-        <div class="comment-title">실시간 답글</div>
-
-        <form class="comment-form" onsubmit="addComment(event)">
-          <input type="text" id="name-input" class="input-field" placeholder="닉네임" required maxlength="10">
-          <input type="text" id="text-input" class="input-field" placeholder="소하준한테 한마디 적고 가셈" required maxlength="80">
-          <button type="submit" class="submit-btn">게시</button>
-        </form>
-
-        <div class="comment-list" id="comment-container">
-          <div class="comment-item">
-            <div class="comment-user">
-              <span>익명1</span>
-              <span>방금 전</span>
-            </div>
-            <div class="comment-text">진짜 반박 불가 팩트라서 할 말 없을 듯</div>
-          </div>
-          <div class="comment-item">
-            <div class="comment-user">
-              <span>동네주민</span>
-              <span>12분 전</span>
-            </div>
-            <div class="comment-text">소하준 이 글 보고 식은땀 흘리는 중</div>
-          </div>
-          <div class="comment-item">
-            <div class="comment-user">
-              <span>찐친구</span>
-              <span>24분 전</span>
-            </div>
-            <div class="comment-text">얌전한 척 그만하고 빨리 단톡방에 답장이나 해라</div>
-          </div>
-          <div class="comment-item">
-            <div class="comment-user">
-              <span>구경꾼</span>
-              <span>1시간 전</span>
-            </div>
-            <div class="comment-text">소하준 등판할 때까지 숨 참는다</div>
-          </div>
-        </div>
-      </section>
-
-    </main>
+    <!-- Footer -->
+    <footer class="footer">
+      <p style="color: var(--pink-soft); font-size: 0.9rem; margin-bottom: 4px;">소하준한테 보내서 제대로 놀려주기</p>
+      <button class="share-btn" onclick="copyLink()">
+        링크 복사해서 하준이 보내기
+      </button>
+    </footer>
 
   </div>
 
-  <div id="toast" class="toast">링크가 복사되었습니다.</div>
+  <div id="toast" class="toast">링크 복사 완료 하준이한테 보내셈</div>
 
   <script>
-    // Likes System (Starts from 0)
-    const likes = { 1: 0, 2: 0, 3: 0 };
+    // Audio Synthesizer (Cute pops & teasing sound)
+    let soundOn = true;
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
-    function toggleLike(id) {
-      likes[id]++;
-      const btn = document.getElementById(`like-btn-${id}`);
-      const text = document.getElementById(`like-text-${id}`);
-      btn.classList.add('liked');
-      text.innerText = `좋아요 ${likes[id]}`;
-      showToast('좋아요를 눌렀습니다.');
+    function toggleSound() {
+      soundOn = !soundOn;
+      document.querySelector('.sound-btn').innerText = soundOn ? '사운드 ON' : '사운드 OFF';
     }
 
-    // Comment submission
-    function addComment(e) {
-      e.preventDefault();
-      const name = document.getElementById('name-input').value.trim();
-      const text = document.getElementById('text-input').value.trim();
-      if (!name || !text) return;
-
-      const container = document.getElementById('comment-container');
-      const item = document.createElement('div');
-      item.className = 'comment-item';
-      item.innerHTML = `
-        <div class="comment-user">
-          <span>${escapeHtml(name)}</span>
-          <span>방금 전</span>
-        </div>
-        <div class="comment-text">${escapeHtml(text)}</div>
-      `;
-      container.prepend(item);
-
-      document.getElementById('name-input').value = '';
-      document.getElementById('text-input').value = '';
-      showToast('답글이 등록되었습니다.');
+    function playPop(freq = 600) {
+      if (!soundOn) return;
+      try {
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now);
+        osc.frequency.exponentialRampToValueAtTime(freq * 1.5, now + 0.1);
+        gain.gain.setValueAtTime(0.12, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 0.12);
+      } catch (e) {}
     }
 
-    function escapeHtml(str) {
-      return str.replace(/[&<>'"]/g, tag => ({
-        '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
-      }[tag] || tag));
+    // Sparkle Canvas (Pink Shimmer)
+    const canvas = document.getElementById('sparkle-canvas');
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    const particles = [];
+    const colors = ['#ff2a7a', '#ff75a6', '#ffffff', '#ffb6d3'];
+
+    function spawnBurst(amount = 20) {
+      for (let i = 0; i < amount; i++) {
+        particles.push({
+          x: width / 2,
+          y: height / 2 + 30,
+          size: Math.random() * 6 + 3,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          speedY: Math.random() * -10 - 3,
+          speedX: Math.random() * 10 - 5,
+          rotation: Math.random() * 360,
+          rotationSpeed: Math.random() * 8 - 4
+        });
+      }
     }
 
-    // Share link
-    function copyShareLink() {
-      const url = window.location.origin + window.location.pathname;
-      navigator.clipboard.writeText(url).then(() => {
-        showToast('링크가 복사되었습니다.');
-      }).catch(() => {
-        showToast('링크 복사 완료');
-      });
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.y += p.speedY;
+        p.x += p.speedX;
+        p.speedY += 0.3;
+        p.rotation += p.rotationSpeed;
+
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate((p.rotation * Math.PI) / 180);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+        ctx.restore();
+
+        if (p.y > height) {
+          particles.splice(i, 1);
+          i--;
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Teasing Clicker
+    let count = 0;
+    const countEl = document.getElementById('count');
+    const statusEl = document.getElementById('status');
+
+    const lines = [
+      "아 또 슬그머니 기어나온다 얌전한 척 레전드",
+      "카톡 읽씹하다가 밥 먹자니까 1초 만에 답장 옴",
+      "자기는 세상에서 제일 착한 척 눈만 껌뻑이는 중",
+      "계산할 타이밍 귀신같이 알고 신발끈 묶으러 감",
+      "소하준 얌물녀 본색 슬슬 드러나는 중",
+      "이 글 보고 찔려서 식은땀 흘리고 있을 듯",
+      "소하준 전국 얌물녀 협회 종신회장 확정"
+    ];
+
+    function triggerYam() {
+      count++;
+      countEl.innerText = `${count}회`;
+      playPop(500 + (count % 8) * 60);
+      spawnBurst(18);
+
+      const idx = Math.min(lines.length - 1, Math.floor(count / 2));
+      statusEl.innerText = lines[idx];
+
+      if (count === 10 || count === 25 || count === 50) {
+        showToast(`소하준 얌물력 ${count}회 돌파 완료`);
+      }
     }
 
     function showToast(msg) {
@@ -602,6 +593,15 @@
       toast.innerText = msg;
       toast.classList.add('show');
       setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+
+    function copyLink() {
+      const url = window.location.origin + window.location.pathname;
+      navigator.clipboard.writeText(url).then(() => {
+        showToast('링크 복사 완료 하준이한테 보내셈');
+      }).catch(() => {
+        showToast('링크 복사 완료');
+      });
     }
   </script>
 </body>
