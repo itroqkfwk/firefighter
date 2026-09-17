@@ -9,6 +9,7 @@
   <title>얌물녀 소하준 간다 또 간다</title>
   <meta property="og:title" content="얌물녀 소하준 간다 또 간다">
   <meta property="og:description" content="가만히 있다가 또 슬그머니 기어나오는 그 사람. 오늘자 얌전한 척 레전드 갱신.">
+  <meta property="og:image" content="fight.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -170,6 +171,88 @@
       word-break: keep-all;
     }
 
+    /* BREAKING NEWS: FIGHT CARD */
+    .fight-card {
+      background: var(--card-bg);
+      border: 2px solid var(--pink-main);
+      border-radius: 22px;
+      padding: 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 12px 30px rgba(255, 42, 122, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fight-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding: 0 4px;
+    }
+
+    .fight-badge {
+      background: var(--pink-main);
+      color: #fff;
+      font-size: 0.76rem;
+      font-weight: 900;
+      padding: 3px 8px;
+      border-radius: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .fight-time {
+      font-size: 0.78rem;
+      color: var(--subtext);
+    }
+
+    .fight-title {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 6px;
+      padding: 0 4px;
+      word-break: keep-all;
+    }
+
+    .fight-sub {
+      font-size: 0.88rem;
+      color: var(--pink-light);
+      margin-bottom: 12px;
+      padding: 0 4px;
+      word-break: keep-all;
+    }
+
+    .fight-img-box {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      position: relative;
+      background: #000;
+      margin-bottom: 12px;
+    }
+
+    .fight-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .fight-img:hover {
+      transform: scale(1.02);
+    }
+
+    .fight-caption {
+      padding: 8px 10px;
+      font-size: 0.9rem;
+      color: var(--pink-soft);
+      line-height: 1.55;
+      background: rgba(14, 5, 11, 0.6);
+      border-radius: 10px;
+      word-break: keep-all;
+    }
+
     /* Interactive "간다 또 간다" Simulator */
     .action-card {
       background: radial-gradient(circle at center, rgba(255, 42, 122, 0.25) 0%, rgba(28, 12, 23, 0.95) 100%);
@@ -225,7 +308,7 @@
       transform: scale(0.95);
     }
 
-    /* SNS Tone Feeds */
+    /* SNS Style Feeds */
     .feed-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -396,6 +479,22 @@
       </p>
     </section>
 
+    <!-- BREAKING NEWS: FIGHT PHOTO CARD -->
+    <article class="fight-card">
+      <div class="fight-header">
+        <span class="fight-badge">단독 속보</span>
+        <span class="fight-time">실시간 CCTV 유출</span>
+      </div>
+      <h2 class="fight-title">서양사 최향란 교수 vs 얌물녀 소하준 맞짱 현장</h2>
+      <p class="fight-sub">강의실에서 얌전한 척 딴청 피우다 딱 걸려서 참교육당하는 순간</p>
+      <div class="fight-img-box">
+        <img src="fight.jpg" alt="서양사 최향란 교수 vs 소하준 맞짱 현장" class="fight-img">
+      </div>
+      <div class="fight-caption">
+        현장 목격자 증언: 소하준 또 모른 척 얌물녀 눈빛 발사하면서 손 들고 변명하다가 최향란 교수님 극대노 레이저 맞고 영혼까지 탈곡당하는 중. 저 특유의 억울한 척하는 표정 킹받는 거 실화냐.
+      </div>
+    </article>
+
     <!-- Interactive Simulator -->
     <section class="action-card">
       <div class="action-badge">소하준 얌물 출몰 카운터</div>
@@ -421,7 +520,7 @@
           평소엔 단톡방에서 읽씹하고 숨죽이고 있다가 어디서 맛있는 거 먹는다거나 콩고물 떨어질 거 같으면 조용히 기어나와서 간다 또 간다 시전함.
         </p>
         <p>
-          눈 동그랗게 뜨고 아무것도 모른다는 표정 짓는 게 제일 킬포임. 다들 알면서 넘어가는 거니까 양심 챙기셈.
+          교수님 앞에서도 저 표정 짓는 거 보면 진짜 얌물력 하나는 타고났음. 다들 알면서 넘어가는 거니까 양심 챙기셈.
         </p>
       </div>
     </article>
@@ -450,7 +549,7 @@
     <div class="points-grid">
       <div class="point-box">
         <div class="point-title">포커페이스 달인</div>
-        <div class="point-text">세상 무해한 표정으로 뒤에서 실속 다 챙김</div>
+        <div class="point-text">세상 무해한 표정으로 뒤에서 실속 챙김</div>
       </div>
 
       <div class="point-box">
@@ -567,7 +666,7 @@
     const lines = [
       "아 또 슬그머니 기어나온다 얌전한 척 레전드",
       "카톡 읽씹하다가 밥 먹자니까 1초 만에 답장 옴",
-      "자기는 세상에서 제일 착한 척 눈만 껌뻑이는 중",
+      "교수님 앞에서도 저 억울한 척 표정 짓는 중",
       "계산할 타이밍 귀신같이 알고 신발끈 묶으러 감",
       "소하준 얌물녀 본색 슬슬 드러나는 중",
       "이 글 보고 찔려서 식은땀 흘리고 있을 듯",
