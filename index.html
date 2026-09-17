@@ -6,21 +6,21 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>🚨 간다 또 간다 소하준! 🚒💨</title>
-  <meta property="og:title" content="🚨 간다 또 간다 소하준! 🚒💨">
-  <meta property="og:description" content="밥 먹다가도 간다! 자다가도 간다! 불 끄러 간다 또 간다 소하준!">
-  <meta property="og:image" content="poster.jpg">
+  <title>소하준 얌물녀 실시간 근황</title>
+  <meta property="og:title" content="소하준 얌물녀 실시간 근황">
+  <meta property="og:description" content="솔직히 소하준 얌물녀인 거 모르는 사람 아직도 있음?">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --siren-red: #ff3838;
-      --siren-blue: #18dcff;
-      --gold: #ffd32a;
-      --dark: #0f141d;
-      --card: rgba(23, 32, 48, 0.9);
-      --border: rgba(255, 211, 42, 0.35);
+      --bg: #101010;
+      --card-bg: #181818;
+      --border: #2e2e2e;
+      --text: #f3f5f7;
+      --subtext: #777777;
+      --accent: #ff3040;
+      --link: #3b82f6;
     }
 
     * {
@@ -32,593 +32,577 @@
 
     body {
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--dark);
-      background-image: 
-        radial-gradient(circle at 10% 10%, rgba(255, 56, 56, 0.25) 0%, transparent 45%),
-        radial-gradient(circle at 90% 90%, rgba(24, 220, 255, 0.2) 0%, transparent 45%),
-        radial-gradient(circle at 50% 50%, #0f141d 0%, #06090e 100%);
-      background-attachment: fixed;
-      color: #f1f2f6;
+      background-color: var(--bg);
+      color: var(--text);
       min-height: 100vh;
-      overflow-x: hidden;
-      line-height: 1.6;
-      padding-bottom: calc(40px + env(safe-area-inset-bottom));
+      line-height: 1.5;
+      padding-bottom: 60px;
     }
 
-    #confetti-canvas {
-      position: fixed;
+    /* Top Navigation Bar */
+    .top-nav {
+      position: sticky;
       top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 999;
+      z-index: 100;
+      background: rgba(16, 16, 16, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 52px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: -0.2px;
     }
 
     .container {
-      max-width: 650px;
+      max-width: 580px;
       margin: 0 auto;
-      padding: 24px 16px 60px;
-      position: relative;
-      z-index: 10;
+      padding: 16px;
     }
 
-    /* Sound Switch */
-    .sound-btn {
-      position: fixed;
-      top: 16px;
-      right: 16px;
-      z-index: 1000;
-      background: rgba(15, 20, 29, 0.85);
-      backdrop-filter: blur(8px);
-      border: 1px solid var(--border);
-      color: var(--gold);
-      padding: 8px 14px;
-      border-radius: 30px;
-      font-size: 0.85rem;
-      font-weight: 800;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    /* Profile Header */
+    .profile-card {
+      padding: 20px 4px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
-    /* HEADER */
-    .header {
-      text-align: center;
-      margin-bottom: 22px;
-    }
-
-    .alert-pill {
-      display: inline-flex;
+    .profile-row {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 6px;
-      background: linear-gradient(135deg, rgba(255, 56, 56, 0.3), rgba(24, 220, 255, 0.2));
-      border: 1px solid rgba(255, 56, 56, 0.5);
-      padding: 6px 16px;
-      border-radius: 50px;
+    }
+
+    .profile-info h1 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .profile-handle {
       font-size: 0.88rem;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 12px;
-      animation: pulse 1.5s infinite;
+      color: var(--subtext);
+      margin-top: 2px;
     }
 
-    .title {
-      font-size: clamp(2rem, 7.5vw, 2.9rem);
-      font-weight: 900;
-      line-height: 1.25;
-      background: linear-gradient(135deg, #fff 10%, #ffd32a 50%, #ff3838 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 8px;
-      word-break: keep-all;
-    }
-
-    .subtitle {
-      font-size: clamp(1rem, 3.8vw, 1.15rem);
-      color: #ced6e0;
-      font-weight: 600;
-      word-break: keep-all;
-    }
-
-    /* POSTER CARD */
-    .poster-box {
-      background: var(--card);
-      border: 2px solid var(--border);
-      border-radius: 24px;
-      padding: 14px;
-      margin-bottom: 24px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.7);
-      text-align: center;
-      position: relative;
-    }
-
-    .poster-wrap {
-      border-radius: 18px;
-      overflow: hidden;
-      position: relative;
-      background: #000;
-    }
-
-    .poster-wrap img {
-      width: 100%;
-      height: auto;
-      max-height: 600px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .poster-tag {
-      position: absolute;
-      bottom: 12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(15, 20, 29, 0.92);
-      border: 1.5px solid var(--gold);
-      padding: 8px 18px;
-      border-radius: 30px;
-      color: #fff;
-      font-weight: 800;
-      font-size: 0.9rem;
-      white-space: nowrap;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.6);
-    }
-
-    /* DISPATCH SIMULATOR */
-    .dispatch-card {
-      background: radial-gradient(circle at center, rgba(255, 56, 56, 0.25) 0%, rgba(23, 32, 48, 0.95) 100%);
-      border: 2px dashed rgba(255, 56, 56, 0.6);
-      border-radius: 22px;
-      padding: 24px 16px;
-      text-align: center;
-      margin-bottom: 24px;
-    }
-
-    .dispatch-title {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: #ff3838;
-      margin-bottom: 4px;
-    }
-
-    .dispatch-count {
-      font-size: clamp(3rem, 11vw, 4.2rem);
-      font-weight: 900;
-      color: #ffd32a;
-      line-height: 1.1;
-      margin: 6px 0;
-      text-shadow: 0 0 20px rgba(255, 211, 42, 0.5);
-    }
-
-    .dispatch-status {
-      font-size: 0.98rem;
+    .profile-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #333333, #222222);
+      border: 1px solid var(--border);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.1rem;
       font-weight: 700;
-      color: #70a1ff;
-      margin-bottom: 14px;
-      min-height: 24px;
+      color: #aaa;
     }
 
-    .dispatch-btn {
-      background: linear-gradient(135deg, #ff3838, #ff5e57);
-      color: #fff;
-      font-size: clamp(1.15rem, 4.5vw, 1.3rem);
-      font-weight: 900;
-      border: none;
-      border-radius: 50px;
-      padding: 16px 36px;
+    .profile-bio {
+      font-size: 0.95rem;
+      color: #d1d5db;
+      line-height: 1.5;
+      word-break: keep-all;
+    }
+
+    .profile-meta {
+      font-size: 0.82rem;
+      color: var(--subtext);
+      display: flex;
+      gap: 12px;
+    }
+
+    /* Action Tab */
+    .tab-bar {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 12px;
+    }
+
+    .tab-item {
+      flex: 1;
+      text-align: center;
+      padding: 12px 0;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--subtext);
       cursor: pointer;
-      box-shadow: 0 10px 25px rgba(255, 56, 56, 0.45);
-      transition: transform 0.1s, box-shadow 0.1s;
-      width: 100%;
-      max-width: 320px;
+      position: relative;
     }
 
-    .dispatch-btn:active {
-      transform: scale(0.94);
+    .tab-item.active {
+      color: var(--text);
+      border-bottom: 2px solid var(--text);
     }
 
-    /* REAL FRIEND LETTER (NO CRINGE) */
-    .friend-letter {
-      background: var(--card);
-      border-left: 6px solid var(--gold);
-      border-radius: 20px;
-      padding: 24px 20px;
-      margin-bottom: 24px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    /* Feed Threads */
+    .thread-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
-    .letter-title {
-      font-size: 1.25rem;
-      font-weight: 900;
-      color: var(--gold);
-      margin-bottom: 14px;
+    .thread-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .thread-author-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .small-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #2a2a2a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #999;
+      border: 1px solid var(--border);
+    }
+
+    .author-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .author-name {
+      font-size: 0.92rem;
+      font-weight: 700;
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
-    .letter-content {
-      font-size: clamp(0.98rem, 3.8vw, 1.05rem);
-      color: #f1f2f6;
-      line-height: 1.8;
+    .post-badge {
+      font-size: 0.72rem;
+      background: #2a2a2a;
+      color: #aaa;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .post-time {
+      font-size: 0.78rem;
+      color: var(--subtext);
+    }
+
+    .thread-content {
+      font-size: 0.98rem;
+      color: #e5e7eb;
+      line-height: 1.65;
       word-break: keep-all;
     }
 
-    .letter-content p {
-      margin-bottom: 12px;
+    .thread-content p {
+      margin-bottom: 10px;
     }
 
-    .letter-content p:last-child {
+    .thread-content p:last-child {
       margin-bottom: 0;
     }
 
-    .tag-yellow {
-      color: var(--gold);
-      font-weight: 800;
-      background: rgba(255, 211, 42, 0.15);
-      padding: 2px 6px;
-      border-radius: 4px;
-    }
-
-    .tag-red {
-      color: #ff4d4d;
-      font-weight: 800;
-      background: rgba(255, 56, 56, 0.18);
-      padding: 2px 6px;
-      border-radius: 4px;
-    }
-
-    .sign {
-      text-align: right;
-      font-weight: 800;
-      color: var(--gold);
-      margin-top: 16px;
-      font-size: 1rem;
-    }
-
-    /* 3 FACTS */
-    .facts-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    @media (min-width: 520px) {
-      .facts-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .fact-item {
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 16px 14px;
-      text-align: center;
-    }
-
-    .fact-icon {
-      font-size: 1.8rem;
-      margin-bottom: 6px;
-    }
-
-    .fact-title {
-      font-size: 1rem;
-      font-weight: 800;
+    .highlight-word {
       color: #fff;
-      margin-bottom: 4px;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
-    .fact-desc {
-      font-size: 0.85rem;
-      color: #a4b0be;
-      line-height: 1.4;
-      word-break: keep-all;
-    }
-
-    /* FOOTER */
-    .footer {
-      text-align: center;
-      padding: 18px;
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 18px;
-    }
-
-    .share-btn {
-      background: rgba(255, 211, 42, 0.18);
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      padding: 12px 24px;
-      border-radius: 30px;
-      font-weight: 800;
-      font-size: 0.95rem;
-      cursor: pointer;
-      display: inline-flex;
+    /* Interaction Bar */
+    .action-row {
+      display: flex;
       align-items: center;
-      gap: 8px;
-      margin-top: 8px;
+      gap: 18px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
 
+    .action-btn {
+      background: transparent;
+      border: none;
+      color: var(--subtext);
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 0;
+      transition: color 0.15s;
+    }
+
+    .action-btn.liked {
+      color: var(--accent);
+    }
+
+    .action-btn:hover {
+      color: var(--text);
+    }
+
+    /* Comment Write Section */
+    .comment-section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      margin-top: 6px;
+    }
+
+    .comment-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .comment-form {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .input-field {
+      background: #111;
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .input-field:focus {
+      border-color: #555;
+    }
+
+    .submit-btn {
+      background: #fff;
+      color: #000;
+      border: none;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .submit-btn:hover {
+      opacity: 0.85;
+    }
+
+    .comment-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .comment-item {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .comment-item:last-child {
+      border-bottom: none;
+    }
+
+    .comment-user {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #9ca3af;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .comment-text {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      line-height: 1.45;
+      word-break: break-word;
+    }
+
+    /* Toast */
     .toast {
       position: fixed;
       bottom: 24px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(15, 20, 29, 0.96);
-      border: 1.5px solid var(--gold);
-      color: var(--gold);
-      padding: 12px 24px;
-      border-radius: 50px;
-      font-weight: 800;
-      font-size: 0.9rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      background: #222;
+      border: 1px solid #444;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
       z-index: 1000;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.3s;
+      transition: opacity 0.25s ease;
       white-space: nowrap;
     }
 
     .toast.show {
       opacity: 1;
     }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.04); opacity: 0.85; }
-    }
   </style>
 </head>
 <body>
 
-  <!-- Sound Toggle -->
-  <button class="sound-btn" onclick="toggleSound()">
-    <span id="sound-icon">🔊</span> 사이렌 ON
-  </button>
-
-  <canvas id="confetti-canvas"></canvas>
+  <!-- Top Nav -->
+  <nav class="top-nav">
+    <span>실시간 트렌드</span>
+  </nav>
 
   <div class="container">
 
-    <!-- 1. HEADER -->
-    <header class="header">
-      <div class="alert-pill">
-        🚨 비상! 하준이 출동 준비 완료 삐뽀삐뽀
+    <!-- Profile Header -->
+    <header class="profile-card">
+      <div class="profile-row">
+        <div class="profile-info">
+          <h1>소하준</h1>
+          <div class="profile-handle">@so_hajun · 실시간 1위</div>
+        </div>
+        <div class="profile-avatar">소하준</div>
       </div>
-      <h1 class="title">간다 또 간다 소하준! 🚒💨</h1>
-      <p class="subtitle">밥 먹다가도 간다! 자다가도 간다! 불 끄러 간다 또 간다!</p>
+      <p class="profile-bio">
+        자칭 평화주의자. 타칭 얌물녀의 정석. 남들 다 아는데 본인만 얌전한 척 조용히 넘어갈 수 있다고 믿는 편.
+      </p>
+      <div class="profile-meta">
+        <span>팔로워 1.4만</span>
+        <span>언급 8,920회</span>
+      </div>
     </header>
 
-    <!-- 2. POSTER -->
-    <div class="poster-box">
-      <div class="poster-wrap">
-        <img src="poster.jpg" alt="소하준 소방관 포스터">
-        <div class="poster-tag">
-          🚨 출동 벨 울리면 0.1초 만에 튀어나갈 사나이
-        </div>
-      </div>
+    <!-- Tabs -->
+    <div class="tab-bar">
+      <div class="tab-item active">스레드</div>
+      <div class="tab-item">답글</div>
+      <div class="tab-item">하이라이트</div>
     </div>
 
-    <!-- 3. FUN DISPATCH SIMULATOR -->
-    <section class="dispatch-card">
-      <div class="dispatch-title">🚨 소하준 출동 시뮬레이터 🚨</div>
-      <div class="dispatch-count" id="count">0회</div>
-      <div class="dispatch-status" id="status">버튼 눌러서 하준이 출동시켜라 ㅋㅋㅋ</div>
+    <!-- Feed Threads -->
+    <main class="thread-list">
 
-      <button class="dispatch-btn" onclick="dispatch()">
-        🚒 간다 또 간다! 출동! 💨
-      </button>
-    </section>
-
-    <!-- 4. REAL FRIEND LETTER (NO CRINGE) -->
-    <section class="friend-letter">
-      <div class="letter-title">
-        <span>📜</span> 야 소하준, 소방관 된 거 진심으로 축하한다!
-      </div>
-      <div class="letter-content">
-        <p>
-          드디어 소방관 합격했네 <span class="tag-yellow">소하준 진짜 고생 많았다 ㅋㅋㅋ ㅊㅋㅊㅋ!</span> 🎉
-        </p>
-        <p>
-          이제 밥 먹을 때 벨 울리면 숟가락 집어던지고 뛰쳐나가야 된다. 
-          <span class="tag-red">컵라면에 뜨거운 물 붓자마자 사이렌 울려도 절대 울지 마라 ㅋㅋㅋ</span> 면 다 불어도 출동해야 되는 게 네 운명이다.
-        </p>
-        <p>
-          합격했으니까 첫 월급 타면 모른 척하지 말고 <span class="tag-yellow">고기 쏘는 거 잊지 마라.</span> 양심 있으면 소고기 알지? 🥩
-        </p>
-        <p>
-          장난이고, 불 끄는 것도 멋진데 <strong>너 다치면 진짜 내가 찾아가서 혼낼 거니까</strong> 무슨 일 있어도 몸 사리고 다치지 마라 임마! 무조건 안 다치는 게 1순위다 알겠냐?
-        </p>
-        <div class="sign">
-          - 첫 월급 소고기 대기 중인 친구가 -
+      <!-- Post 1 -->
+      <article class="thread-card">
+        <div class="thread-author-row">
+          <div class="small-avatar">익명</div>
+          <div class="author-meta">
+            <span class="author-name">실시간 폭로 제보 <span class="post-badge">HOT</span></span>
+            <span class="post-time">10분 전</span>
+          </div>
         </div>
-      </div>
-    </section>
+        <div class="thread-content">
+          <p>
+            솔직히 소하준 <span class="highlight-word">얌물녀</span>인 거 여태 모르는 사람 아직도 있음?
+          </p>
+          <p>
+            남들 앞에서만 세상 조용하고 무해한 척 눈 동그랗게 뜨고 있는데 뒤에서 야금야금 다 챙겨먹는 거 진짜 볼 때마다 감탄 나옴. 
+          </p>
+          <p>
+            다들 알면서도 웃겨서 가만히 보고 있는 건데 진짜 자기가 티 안 나는 줄 아는 게 제일 킬포임.
+          </p>
+        </div>
+        <div class="action-row">
+          <button class="action-btn" id="like-btn-1" onclick="toggleLike(1)">
+            <span id="like-text-1">좋아요 0</span>
+          </button>
+          <button class="action-btn" onclick="copyShareLink()">
+            공유하기
+          </button>
+        </div>
+      </article>
 
-    <!-- 5. 3 FACTS -->
-    <div class="facts-grid">
-      <div class="fact-item">
-        <div class="fact-icon">🍜</div>
-        <div class="fact-title">3분 요리의 저주</div>
-        <div class="fact-desc">카레 돌리면 2분 50초에 사이렌 울림 확정</div>
-      </div>
+      <!-- Post 2 -->
+      <article class="thread-card">
+        <div class="thread-author-row">
+          <div class="small-avatar">지인</div>
+          <div class="author-meta">
+            <span class="author-name">소하준 최측근</span>
+            <span class="post-time">32분 전</span>
+          </div>
+        </div>
+        <div class="thread-content">
+          <p>
+            소하준식 대화 패턴 특.
+          </p>
+          <p>
+            1. 평소엔 톡방에 아무 말도 안 하고 읽씹하거나 숨어있음.<br>
+            2. 어디서 콩고물 떨어질 거 같으면 조용히 기어나와서 자연스럽게 한자리 차지함.<br>
+            3. 계산할 타이밍 오면 갑자기 세상에서 제일 바쁜 사람 됨.
+          </p>
+          <p>
+            하준아 양심이라는 게 있으면 이번에는 네가 먼저 지갑 열어라. 보고 있는 거 다 안다.
+          </p>
+        </div>
+        <div class="action-row">
+          <button class="action-btn" id="like-btn-2" onclick="toggleLike(2)">
+            <span id="like-text-2">좋아요 0</span>
+          </button>
+          <button class="action-btn" onclick="copyShareLink()">
+            공유하기
+          </button>
+        </div>
+      </article>
 
-      <div class="fact-item">
-        <div class="fact-icon">🥩</div>
-        <div class="fact-title">첫 월급 소고기 공약</div>
-        <div class="fact-desc">입 싹 닫으면 119 장난전화 마려우니까 사줘라</div>
-      </div>
+      <!-- Post 3 -->
+      <article class="thread-card">
+        <div class="thread-author-row">
+          <div class="small-avatar">팩폭</div>
+          <div class="author-meta">
+            <span class="author-name">팩트체커</span>
+            <span class="post-time">1시간 전</span>
+          </div>
+        </div>
+        <div class="thread-content">
+          <p>
+            소하준 이 글 보고 카톡방에서 또 모른 척 딴소리 시전할 확률 100퍼센트에 전재산 건다.
+          </p>
+          <p>
+            찔리면 반박을 하든가 밥을 사든가 둘 중 하나만 선택하셈. 반박 시 네 말이 다 맞음.
+          </p>
+        </div>
+        <div class="action-row">
+          <button class="action-btn" id="like-btn-3" onclick="toggleLike(3)">
+            <span id="like-text-3">좋아요 0</span>
+          </button>
+          <button class="action-btn" onclick="copyShareLink()">
+            공유하기
+          </button>
+        </div>
+      </article>
 
-      <div class="fact-item">
-        <div class="fact-icon">🛡️</div>
-        <div class="fact-title">몸조심 안전제일</div>
-        <div class="fact-desc">아무리 급해도 다치지 말고 무사히 돌아와라</div>
-      </div>
-    </div>
+      <!-- Realtime Comments -->
+      <section class="comment-section">
+        <div class="comment-title">실시간 답글</div>
 
-    <!-- 6. FOOTER -->
-    <footer class="footer">
-      <p style="color: #a4b0be; font-size: 0.9rem;">하준이한테 링크 보내서 놀려주자 ㅋㅋㅋ</p>
-      <button class="share-btn" onclick="copyLink()">
-        <span>🔗</span> 링크 복사해서 하준이 보내기
-      </button>
-    </footer>
+        <form class="comment-form" onsubmit="addComment(event)">
+          <input type="text" id="name-input" class="input-field" placeholder="닉네임" required maxlength="10">
+          <input type="text" id="text-input" class="input-field" placeholder="소하준한테 한마디 적고 가셈" required maxlength="80">
+          <button type="submit" class="submit-btn">게시</button>
+        </form>
+
+        <div class="comment-list" id="comment-container">
+          <div class="comment-item">
+            <div class="comment-user">
+              <span>익명1</span>
+              <span>방금 전</span>
+            </div>
+            <div class="comment-text">진짜 반박 불가 팩트라서 할 말 없을 듯</div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-user">
+              <span>동네주민</span>
+              <span>12분 전</span>
+            </div>
+            <div class="comment-text">소하준 이 글 보고 식은땀 흘리는 중</div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-user">
+              <span>찐친구</span>
+              <span>24분 전</span>
+            </div>
+            <div class="comment-text">얌전한 척 그만하고 빨리 단톡방에 답장이나 해라</div>
+          </div>
+          <div class="comment-item">
+            <div class="comment-user">
+              <span>구경꾼</span>
+              <span>1시간 전</span>
+            </div>
+            <div class="comment-text">소하준 등판할 때까지 숨 참는다</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
 
   </div>
 
-  <div id="toast" class="toast">✅ 링크 복사 완료! 하준이한테 보내라 ㅋㅋㅋ</div>
+  <div id="toast" class="toast">링크가 복사되었습니다.</div>
 
   <script>
-    // Web Audio Synthesizer (Siren & Funny Sounds)
-    let soundOn = true;
-    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    // Likes System (Starts from 0)
+    const likes = { 1: 0, 2: 0, 3: 0 };
 
-    function toggleSound() {
-      soundOn = !soundOn;
-      document.getElementById('sound-icon').innerText = soundOn ? '🔊' : '🔇';
-      document.querySelector('.sound-btn').innerHTML = soundOn ? '🔊 사이렌 ON' : '🔇 사이렌 OFF';
+    function toggleLike(id) {
+      likes[id]++;
+      const btn = document.getElementById(`like-btn-${id}`);
+      const text = document.getElementById(`like-text-${id}`);
+      btn.classList.add('liked');
+      text.innerText = `좋아요 ${likes[id]}`;
+      showToast('좋아요를 눌렀습니다.');
     }
 
-    function playSiren() {
-      if (!soundOn) return;
-      try {
-        if (audioCtx.state === 'suspended') audioCtx.resume();
-        const now = audioCtx.currentTime;
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(600, now);
-        osc.frequency.linearRampToValueAtTime(1050, now + 0.18);
-        osc.frequency.linearRampToValueAtTime(600, now + 0.36);
-        gain.gain.setValueAtTime(0.12, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        osc.start(now);
-        osc.stop(now + 0.4);
-      } catch (e) {}
+    // Comment submission
+    function addComment(e) {
+      e.preventDefault();
+      const name = document.getElementById('name-input').value.trim();
+      const text = document.getElementById('text-input').value.trim();
+      if (!name || !text) return;
+
+      const container = document.getElementById('comment-container');
+      const item = document.createElement('div');
+      item.className = 'comment-item';
+      item.innerHTML = `
+        <div class="comment-user">
+          <span>${escapeHtml(name)}</span>
+          <span>방금 전</span>
+        </div>
+        <div class="comment-text">${escapeHtml(text)}</div>
+      `;
+      container.prepend(item);
+
+      document.getElementById('name-input').value = '';
+      document.getElementById('text-input').value = '';
+      showToast('답글이 등록되었습니다.');
     }
 
-    function playBuzzer() {
-      if (!soundOn) return;
-      try {
-        if (audioCtx.state === 'suspended') audioCtx.resume();
-        const now = audioCtx.currentTime;
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.type = 'square';
-        osc.frequency.setValueAtTime(320, now);
-        gain.gain.setValueAtTime(0.15, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        osc.start(now);
-        osc.stop(now + 0.2);
-      } catch (e) {}
+    function escapeHtml(str) {
+      return str.replace(/[&<>'"]/g, tag => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+      }[tag] || tag));
     }
 
-    // Canvas Confetti
-    const canvas = document.getElementById('confetti-canvas');
-    const ctx = canvas.getContext('2d');
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
-
-    window.addEventListener('resize', () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    });
-
-    const particles = [];
-    const colors = ['#ff3838', '#ffd32a', '#18dcff', '#ffffff', '#ff5e57'];
-
-    function burst(amount = 25) {
-      for (let i = 0; i < amount; i++) {
-        particles.push({
-          x: width / 2,
-          y: height / 2 + 50,
-          size: Math.random() * 7 + 4,
-          color: colors[Math.floor(Math.random() * colors.length)],
-          speedY: Math.random() * -12 - 4,
-          speedX: Math.random() * 12 - 6,
-          rotation: Math.random() * 360,
-          rotationSpeed: Math.random() * 10 - 5
-        });
-      }
-    }
-
-    function loop() {
-      ctx.clearRect(0, 0, width, height);
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-        p.y += p.speedY;
-        p.x += p.speedX;
-        p.speedY += 0.35;
-        p.rotation += p.rotationSpeed;
-
-        ctx.save();
-        ctx.translate(p.x, p.y);
-        ctx.rotate((p.rotation * Math.PI) / 180);
-        ctx.fillStyle = p.color;
-        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
-        ctx.restore();
-
-        if (p.y > height) {
-          particles.splice(i, 1);
-          i--;
-        }
-      }
-      requestAnimationFrame(loop);
-    }
-    loop();
-
-    // Dispatch Simulator Logic
-    let count = 0;
-    const countEl = document.getElementById('count');
-    const statusEl = document.getElementById('status');
-
-    const funnyMessages = [
-      "🚨 '아 밥 한 숟갈 떴는데!' ㅋㅋㅋ",
-      "🚨 '신발 한 짝 어디 갔냐!' ㅋㅋㅋ",
-      "🚨 '하준이 컵라면 면 다 불어터지는 중!' ㅋㅋㅋ",
-      "🚨 '오늘 당직 누구냐! 하준이 또 뛴다!' ㅋㅋㅋ",
-      "🚨 '소하준 분신술 쓰는 중!' ㅋㅋㅋ",
-      "🚨 '소방차 바퀴에 불나겠다!' ㅋㅋㅋ",
-      "👑 '불 끄기의 신 소하준 등극! 첫 월급 소고기 확정!'"
-    ];
-
-    function dispatch() {
-      count++;
-      countEl.innerText = `${count}회`;
-      playSiren();
-      burst(20);
-
-      const msgIndex = Math.min(funnyMessages.length - 1, Math.floor(count / 3));
-      statusEl.innerText = funnyMessages[msgIndex];
-
-      if (count === 10 || count === 25 || count === 50) {
-        showToast(`🎉 출동 ${count}회 돌파! 하준이 체력 방전 ㅋㅋㅋ`);
-      }
+    // Share link
+    function copyShareLink() {
+      const url = window.location.origin + window.location.pathname;
+      navigator.clipboard.writeText(url).then(() => {
+        showToast('링크가 복사되었습니다.');
+      }).catch(() => {
+        showToast('링크 복사 완료');
+      });
     }
 
     function showToast(msg) {
       const toast = document.getElementById('toast');
       toast.innerText = msg;
       toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2200);
+      setTimeout(() => toast.classList.remove('show'), 2000);
     }
-
-    function copyLink() {
-      const url = window.location.origin + window.location.pathname;
-      navigator.clipboard.writeText(url).then(() => {
-        showToast('✅ 링크 복사 완료! 하준이한테 보내라 ㅋㅋㅋ');
-      }).catch(() => {
-        showToast('링크 복사 완료!');
-      });
-    }
-
-    window.onload = () => {
-      setTimeout(() => burst(25), 300);
-    };
   </script>
 </body>
 </html>
